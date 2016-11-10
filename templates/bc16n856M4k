@@ -1,7 +1,7 @@
 [FxCorrelator]
 katcp_port = 7147
 #sample_rate_hz = 1712000000
-sample_rate_hz = 1714308519
+sample_rate_hz = 1716293220
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -20,9 +20,9 @@ time_offset_allowed_s = 5
 output_products=beam_0x
 stream_index = 0
 #center_freq = 1284000000
-center_freq = 1285731389
+center_freq = 1287219915
 #bandwidth = 856000000
-bandwidth = 857154259
+bandwidth = 858146610
 meta_ip = 239.9.13.30
 #meta_port = 7148
 meta_port = 8889
@@ -37,9 +37,9 @@ source_poly = 2
 output_products=beam_0y
 stream_index = 1
 #center_freq = 1284000000
-center_freq = 1285731389
+center_freq = 1287219915
 #bandwidth = 856000000
-bandwidth = 857154259
+bandwidth = 858146610
 #meta_ip = 239.9.13.31
 meta_ip = 239.9.3.31
 #meta_port = 7148
@@ -74,10 +74,10 @@ sample_bits = 10
 adc_demux_factor = 8
 # The processed analogue bandwidth
 #bandwidth = 856000000
-bandwidth = 857154259
+bandwidth = 858146610
 # the centre frequency on the sky
 #true_cf = 1284000000
-true_cf = 1285731389
+true_cf = 1287219915
 # Number of channels produced by the f-engine
 n_chans = 4096
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
@@ -151,7 +151,7 @@ multicast_interface_address = 239.9.4.1
 
 [dsimengine]
 #sample_rate_hz = 1712000000
-sample_rate_hz = 1714308519
+sample_rate_hz = 1716293220
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
 host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
