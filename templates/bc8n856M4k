@@ -42,7 +42,7 @@ meta_port = 7148
 #data_ip = 239.9.4.1
 data_ip = 239.9.3.31
 data_port = 7148
-source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
+source_weights = ant0_y:1,ant1_y:1,ant2_y:1,ant3_y:1
 source_poly = 3
 
 [fengine]
@@ -99,7 +99,7 @@ network_latency_adjust = 0
 
 [xengine]
 #hosts = ROACH4,ROACH5,ROACH6,ROACH7
-hosts = roach02094e,roach020953,roach02095E,roach020A13
+hosts = roach02094e,roach020939,roach02095E,roach020A13
 
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x256f.fpg
 # x fpga clock speed
@@ -121,16 +121,19 @@ output_products = c856M4k
 output_destination_ip = 239.9.4.1
 output_destination_port = 7148
 # what is the outgoing interface address? i.e. the eth interface that will send the meta information
-multicast_interface_address = 10.100.24.1
+#multicast_interface_address = 10.100.24.1
+multicast_interface_address = 239.9.4.1
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
 
 [dsimengine]
-sample_rate_hz = 1712000000
+#sample_rate_hz = 1712000000
+#sample_rate_hz = 1716741285
+sample_rate_hz = 1714308519
 bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach020A0C
+host = roach02091B
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148

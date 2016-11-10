@@ -50,10 +50,8 @@ source_poly = 3
 #mgw: Tue May  3 11:37:15 SAST 2016: changed to symbolic roach names, needed for subarray testing
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
 hosts = roach02064F,roach020941,roach020961,roach020962
-#bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
-#timing problems:
-#bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_08_1852.fpg
-bitstream = /srv/bofs/feng/rebuilt_32k_feng_test.fpg
+bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
+#bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
 # names and IPs of the sources to the f-engines
 n_antennas = 4
@@ -105,9 +103,9 @@ network_latency_adjust = 0
 
 [xengine]
 #hosts = ROACH4,ROACH5,ROACH6,ROACH7
-hosts = roach02094e,roach020953,roach02095E,roach020A13
-#bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
-bitstream = /srv/bofs/xeng/r2_b4a4x2kf_2016_May_31_1126.fpg
+hosts = roach02094e,roach020939,roach02095E,roach020A13
+bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
+#bitstream = /srv/bofs/xeng/r2_b4a4x2kf_2016_May_31_1126.fpg
 
 # x fpga clock speed
 x_fpga_clock = 230000000
@@ -138,7 +136,7 @@ multicast_interface_address = 10.100.24.1
 #sample_rate_hz = 1714280000
 sample_rate_hz = 1712000000
 bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach020A0C
+host = roach02091B
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148

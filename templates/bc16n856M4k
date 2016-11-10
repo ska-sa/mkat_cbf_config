@@ -24,7 +24,7 @@ meta_ip = 239.9.13.30
 meta_port = 7148
 data_ip = 239.9.13.30
 data_port = 7148
-source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
+source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1,ant4_x:1,ant5_x:1,ant6_x:1,ant7_x:1
 source_poly = 2
 
 [beam1]
@@ -37,12 +37,12 @@ meta_ip = 239.9.13.31
 meta_port = 7148
 data_ip = 239.9.13.31
 data_port = 7148
-source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
+source_weights = ant0_y:1,ant1_y:1,ant2_y:1,ant3_y:1,ant4_y:1,ant5_y:1,ant6_y:1,ant7_y:1
 source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3,ROACH4,ROACH5,ROACH6,ROACH7
-hosts = roach020912,roach02091B,roach020922,roach02091A,roach020928,roach02095A,roach020A0E,roach02095F
+hosts = roach020912,roach02094C,roach020922,roach02091A,roach020928,roach02095A,roach020A0E,roach02095F
 #bitstream = /srv/bofs/feng/r2_c856m4k_2016_May_20_2027.fpg
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
 
@@ -102,7 +102,7 @@ network_latency_adjust = 0
 
 [xengine]
 #hosts = ROACH8,ROACH9,ROACH10,ROACH11,ROACH12,ROACH13,ROACH14,ROACH15
-hosts = roach02090C,roach02091C,roach02091D,roach020933,roach020934,roach020A01,roach020A08,roach020A0B
+hosts = roach02090C,roach02091C,roach02091D,roach020933,roach020936,roach020A01,roach020A08,roach020A0B
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b8a4x128f.fpg
 #PP's compile with timestamp fix:
 #bitstream = /srv/bofs/xeng/r2_b8a4x128f_2016_May_28_1012.fpg
@@ -137,9 +137,11 @@ multicast_interface_address = 10.100.24.1
 [dsimengine]
 sample_rate_hz = 1712000000
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach020A0C
+host = roach02091B
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.10.0.64
-pol1_destination_start_ip = 239.10.0.66
+#pol0_destination_start_ip = 239.10.0.64
+#pol1_destination_start_ip = 239.10.0.66
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66

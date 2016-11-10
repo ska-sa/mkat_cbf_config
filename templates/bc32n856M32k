@@ -24,7 +24,7 @@ meta_ip = 239.9.23.30
 meta_port = 7148
 data_ip = 239.9.23.30
 data_port = 7148
-source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
+source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1,ant4_x:1,ant5_x:1,ant6_x:1,ant7_x:1,ant8_x:1,ant9_x:1,ant10_x:1,ant11_x:1,ant12_x:1,ant13_x:1,ant14_x:1,ant15_x:1
 source_poly = 2
 
 [beam1]
@@ -36,14 +36,14 @@ meta_ip = 239.9.23.31
 meta_port = 7148
 data_ip = 239.9.23.31
 data_port = 7148
-source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
+source_weights = ant0_y:1,ant1_y:1,ant2_y:1,ant3_y:1,ant4_y:1,ant5_y:1,ant6_y:1,ant7_y:1,ant8_y:1,ant9_y:1,ant10_y:1,ant11_y:1,ant12_y:1,ant13_y:1,ant14_y:1,ant15_y:1
 source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach02064F,roach020912,roach020914,roach020922,roach02091B,roach020955,roach020956,roach02095C,roach02095F,roach02091A,roach02092E,roach020954,roach02095A,roach020961,roach020962,roach020A0E
+hosts = roach020912,roach020914,roach020922,roach020939,roach020956,roach02095C,roach02095F,roach02091A,roach02095A,roach020619,roach020962,roach020A0E,roach02094A,roach02064F,roach020955,roach020954
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
-#bitstream = /srv/bofs/feng/r2_c856m32k_Jun_06_2016.fpg
+#bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
 # names and IPs of the sources to the f-engines
 n_antennas = 16
@@ -117,7 +117,8 @@ min_load_time = 0.2
 network_latency_adjust = 0
 
 [xengine]
-hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020934,roach020941,roach02094C,roach020950,roach02095E,roach020A01,roach020A08,roach020A0B
+#hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020936,roach020941,roach02094C,roach020950,roach02095E,roach020A01,roach020A08,roach020A0B
+hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020936,roach020941,roach02094C,roach020960,roach02095E,roach020A01,roach020A08,roach020A0B
 #bitstream = /srv/bofs/xeng/r2_b16a4x512f_2016_Jun_03_1007.fpg
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b16a4x512f.fpg
 
@@ -126,7 +127,7 @@ x_fpga_clock = 230000000
 # Number of X engines per host
 x_per_fpga = 4
 # Number of spectra to integrate in QDR
-accumulation_len = 51
+accumulation_len = 204
 # Number of accumulations performed in the X engine cores
 xeng_accumulation_len = 256
 # Number of bits the vacc uses to represent one number
@@ -144,12 +145,14 @@ multicast_interface_address = 10.100.24.1
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
-10gbe_pkt_gapsize = 32768
+#32768 needed for 0.5s dumps.
+#10gbe_pkt_gapsize = 32768
+10gbe_pkt_gapsize = 262144
 
 [dsimengine]
 sample_rate_hz = 1712000000
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach020A0C
+host = roach02091B
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
