@@ -127,7 +127,7 @@ x_fpga_clock = 230000000
 # Number of X engines per host
 x_per_fpga = 4
 # Number of spectra to integrate in QDR
-accumulation_len = 204
+accumulation_len = 51
 # Number of accumulations performed in the X engine cores
 xeng_accumulation_len = 256
 # Number of bits the vacc uses to represent one number
@@ -147,7 +147,7 @@ multicast_interface_address = 10.100.24.1
 # Gap, in cycles, enforced between output packets
 #32768 needed for 0.5s dumps.
 #10gbe_pkt_gapsize = 32768
-10gbe_pkt_gapsize = 262144
+10gbe_pkt_gapsize = 131071
 
 [dsimengine]
 sample_rate_hz = 1712000000
