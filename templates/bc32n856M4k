@@ -1,7 +1,7 @@
 [FxCorrelator]
 katcp_port = 7147
 #sample_rate_hz = 1712000000
-sample_rate_hz = 1716293220
+sample_rate_hz = 1714298410
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -20,9 +20,9 @@ time_offset_allowed_s = 5
 output_products=beam_0x
 stream_index = 0
 #center_freq = 1284000000
-center_freq = 1287219915
+center_freq = 1285723808
 #bandwidth = 856000000
-bandwidth = 858146610
+bandwidth = 857149205
 meta_ip = 239.9.3.30
 meta_port = 8889 
 data_ip = 239.9.3.30
@@ -34,9 +34,9 @@ source_poly = 2
 output_products=beam_0y
 stream_index = 1
 #center_freq = 1284000000
-center_freq = 1287219915
+center_freq = 1285723808
 #bandwidth = 856000000
-bandwidth = 858146610
+bandwidth = 857149205
 meta_ip = 239.9.3.31
 meta_port = 8890
 data_ip = 239.9.3.31
@@ -69,10 +69,10 @@ sample_bits = 10
 adc_demux_factor = 8
 # The processed analogue bandwidth
 #bandwidth = 856000000
-bandwidth = 858146610
+bandwidth = 857149205
 # the centre frequency on the sky
 #true_cf = 1284000000
-true_cf = 1287219915
+true_cf = 1285723808
 # Number of channels produced by the f-engine
 n_chans = 4096
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
@@ -154,11 +154,11 @@ multicast_interface_address = 239.9.4.1
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
-10gbe_pkt_gapsize = 262144
+10gbe_pkt_gapsize = 65535
 
 [dsimengine]
 #sample_rate_hz = 1712000000
-sample_rate_hz = 1716293220
+sample_rate_hz = 1714298410
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
 host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
