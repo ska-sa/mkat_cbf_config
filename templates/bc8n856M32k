@@ -49,7 +49,7 @@ source_poly = 3
 [fengine]
 #mgw: Tue May  3 11:37:15 SAST 2016: changed to symbolic roach names, needed for subarray testing
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach02064F,roach020941,roach020961,roach020962
+hosts = roach020956,roach020941,roach020961,roach020962
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
 #bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
