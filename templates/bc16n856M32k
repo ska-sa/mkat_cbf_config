@@ -1,6 +1,5 @@
 [FxCorrelator]
 katcp_port = 7147
-#sample_rate_hz = 1712000000
 sample_rate_hz = 1714298408
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
