@@ -1,6 +1,6 @@
 [FxCorrelator]
 katcp_port = 7147
-sample_rate_hz = 1712000000
+sample_rate_hz = 1714298408
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -18,25 +18,25 @@ time_offset_allowed_s = 5
 [beam0]
 output_products=beam_0x
 stream_index = 0
-center_freq = 1284000000
-bandwidth = 856000000
-meta_ip = 239.9.13.30
-meta_port = 7148
-data_ip = 239.9.13.30
-data_port = 7148
+center_freq = 1285723806
+bandwidth = 857149204
+meta_ip = 239.9.3.30
+meta_port = 8889
+data_ip = 239.9.3.30
+data_port = 8889
 source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1,ant4_x:1,ant5_x:1,ant6_x:1,ant7_x:1
 source_poly = 2
 
 [beam1]
 output_products=beam_0y
 stream_index = 1
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 1285723806
+bandwidth = 857149204
 #meta_ip = 10.100.1.1
 meta_ip = 239.9.13.31
-meta_port = 7148
+meta_port = 8890
 data_ip = 239.9.13.31
-data_port = 7148
+data_port = 8890
 source_weights = ant0_y:1,ant1_y:1,ant2_y:1,ant3_y:1,ant4_y:1,ant5_y:1,ant6_y:1,ant7_y:1
 source_poly = 3
 
@@ -62,9 +62,9 @@ sample_bits = 10
 # how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
 # The processed analogue bandwidth
-bandwidth = 856000000
+bandwidth = 857149204
 # the centre frequency on the sky
-true_cf = 1284000000
+true_cf = 1285723806
 # Number of channels produced by the f-engine
 n_chans = 32768
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
@@ -122,21 +122,21 @@ xeng_outbits = 32
 10gbe_port = 7148
 # data product names and destinations
 output_products = c856M32k
-output_destination_ip = 239.9.14.1
+output_destination_ip = 239.9.4.1
 output_destination_port = 7148
 # what is the outgoing interface address? i.e. the eth interface that will send the meta information
-multicast_interface_address = 10.100.24.1
+multicast_interface_address = 239.9.4.1
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
-10gbe_pkt_gapsize = 262144
+10gbe_pkt_gapsize = 65535
 
 [dsimengine]
-sample_rate_hz = 1712000000
+sample_rate_hz = 1714298408
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02091B
+host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.10.0.64
-pol1_destination_start_ip = 239.10.0.66
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66

@@ -1,7 +1,6 @@
 [FxCorrelator]
 katcp_port = 7147
-#sample_rate_hz = 1714280000
-sample_rate_hz = 1712000000
+sample_rate_hz = 1714298408
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -13,36 +12,39 @@ sensor_poll_time = 10
 time_jitter_allowed_ms = 500
 # how close should the received f-engine times be to the actual time
 time_offset_allowed_s = 5
+# what is the TTL for SPEAD metadata packets?
+spead_metapacket_ttl = 4
+
 
 [bengine]
 
 [beam0]
 output_products=beam_0x
 stream_index = 0
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 1285723806
+bandwidth = 857149204
 #meta_ip = 10.100.1.1
 #meta_ip = 127.0.0.1
 #meta_ip = 239.9.3.2
 # request from simonr, 2016-05-05
 meta_ip = 239.9.3.30
-meta_port = 7148
+meta_port = 8889
 data_ip = 239.9.3.30
-data_port = 7148
+data_port = 8889
 source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
 source_poly = 2
 
 [beam1]
 output_products=beam_0y
 stream_index = 1
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 1285723806
+bandwidth = 857149204
 meta_ip = 239.9.3.31
-meta_port = 7148
+meta_port = 8890
 #data_ip = 10.100.1.1
 #data_ip = 239.9.4.1
 data_ip = 239.9.3.31
-data_port = 7148
+data_port = 8890
 source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
 source_poly = 3
 
@@ -70,10 +72,9 @@ sample_bits = 10
 # how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
 # The processed analogue bandwidth
-bandwidth = 856000000
-#bandwidth = 857140000
+bandwidth = 857149204
 # the centre frequency on the sky
-true_cf = 1284000000
+true_cf = 1285723806
 # Number of channels produced by the f-engine
 n_chans = 32768
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
@@ -101,9 +102,16 @@ eq_poly_ant3_y = 1023
 min_load_time = 0.2
 network_latency_adjust = 0
 
+# How many QDR CT errors are acceptable?
+qdr_ct_error_threshold = 100
+
+output_products = fengine-stream
+output_destinations_base = 239.2.1.170:8888
+
+
 [xengine]
 #hosts = ROACH4,ROACH5,ROACH6,ROACH7
-hosts = roach02094e,roach020939,roach02095E,roach020A13
+hosts = roach020960,roach020939,roach02095E,roach020A13
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
 #bitstream = /srv/bofs/xeng/r2_b4a4x2kf_2016_May_31_1126.fpg
 
@@ -123,22 +131,23 @@ xeng_outbits = 32
 10gbe_port = 7148
 # data product names and destinations
 output_products = c856M32k
-output_destination_ip = 239.9.4.1
+output_destination_base = 239.9.4.1:7148
 output_destination_port = 7148
 # what is the outgoing interface address? i.e. the eth interface that will send the meta information
-multicast_interface_address = 10.100.24.1
+multicast_interface_address = 239.9.4.1
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
-10gbe_pkt_gapsize = 262144
+10gbe_pkt_gapsize = 65535
+
 
 [dsimengine]
-#sample_rate_hz = 1714280000
-sample_rate_hz = 1712000000
+sample_rate_hz = 1714298408
 bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02091B
+host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.10.0.64
-pol1_destination_start_ip = 239.10.0.66
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66
+
