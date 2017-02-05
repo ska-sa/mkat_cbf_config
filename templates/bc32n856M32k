@@ -41,7 +41,7 @@ source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach020912,roach020914,roach020922,roach020939,roach020956,roach02095C,roach02095F,roach02091A,roach02095A,roach020962,roach020A0E,roach02094A,roach020955,roach020954,roach02064F,roach020619
+hosts = roach02091C,roach02091D,roach020928,roach020933,roach020936,roach02094C,roach02095E,roach020960,roach020961,roach020A01,roach02095A,roach02095C,roach020962,roach020912,roach020922,roach020939
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
 #bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
@@ -117,9 +117,7 @@ min_load_time = 0.2
 network_latency_adjust = 0
 
 [xengine]
-#hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020936,roach020941,roach02094C,roach020950,roach02095E,roach020A01,roach020A08,roach020A0B
-hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020936,roach020941,roach02094C,roach020960,roach02095E,roach020A01,roach020A08,roach020A0B
-#bitstream = /srv/bofs/xeng/r2_b16a4x512f_2016_Jun_03_1007.fpg
+hosts = roach020923,roach02092B,roach020949,roach020951,roach020952,roach020A08,roach020950,roach020A13,roach020A03,roach020A0B,roach020914,roach020941,roach020954,roach020955,roach02094A,roach02091B
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b16a4x512f.fpg
 
 # x fpga clock speed
