@@ -41,8 +41,7 @@ source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-#hosts = roach02064F,roach020912,roach020914,roach02091B,roach020922,roach020955,roach020956,roach02095C,roach02095F,roach02091A,roach02094A,roach020954,roach02095A,roach020961,roach020962,roach020A0E
-hosts = roach020912,roach020914,roach020922,roach020939,roach020956,roach02095C,roach02095F,roach02091A,roach02095A,roach020619,roach020962,roach020A0E,roach02094A,roach02064F,roach020955,roach020954
+hosts = roach02091F,roach020922,roach020927,roach02095C,roach020961,roach020A01,roach020A0D,roach020A0F,roach020912,roach02091C,roach02091D,roach020933,roach020936,roach02094C,roach02095A,roach020962
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
 #bitstream = /srv/bofs/feng/r2_c856m4k_2016_May_20_2027.fpg
 
@@ -118,7 +117,7 @@ min_load_time = 0.2
 network_latency_adjust = 0
 
 [xengine]
-hosts = roach020951,roach020A03,roach02090C,roach02091C,roach02091D,roach020923,roach020928,roach020933,roach020936,roach020941,roach02094C,roach020960,roach02095E,roach020A01,roach020A08,roach020A0B
+hosts = roach020910,roach020911,roach02093A,roach020944,roach020946,roach020914,roach020958,roach020A12,roach020923,roach02092B,roach020951,roach020954,roach020955,roach020A03,roach020A08,roach020A0B
 #bitstream = /srv/bofs/xeng/r2_b16a4x64f_2016_May_31_0921.fpg -- wrong number of antennas! 2^3?!
 #bitstream = /srv/bofs/xeng/r2_b16a4x64f_2016_Jun_04_0952.fpg
 #bitstream = /srv/bofs/xeng/r2_b16a4x64f_pre_2016_May_23_1548.fpg
