@@ -41,7 +41,7 @@ source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach02091C,roach02091D,roach020928,roach020933,roach020936,roach02094C,roach02095E,roach020960,roach020961,roach020A01,roach02095A,roach02095C,roach020962,roach020912,roach020922,roach020939
+hosts = roach02091F,roach020922,roach020927,roach02095C,roach020961,roach020A01,roach020A0D,roach020A0F,roach020912,roach02091C,roach02091D,roach020933,roach020936,roach02094C,roach02095A,roach020962
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
 #bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
@@ -117,7 +117,7 @@ min_load_time = 0.2
 network_latency_adjust = 0
 
 [xengine]
-hosts = roach020923,roach02092B,roach020949,roach020951,roach020952,roach020A08,roach020950,roach020A13,roach020A03,roach020A0B,roach020914,roach020941,roach020954,roach020955,roach02094A,roach02091B
+hosts = roach020910,roach020911,roach02093A,roach020944,roach020946,roach02094E,roach020958,roach020A12,roach020923,roach02092B,roach020951,roach020954,roach020955,roach020A03,roach020A08,roach020A0B
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b16a4x512f.fpg
 
 # x fpga clock speed
@@ -150,7 +150,7 @@ multicast_interface_address = 10.100.24.1
 [dsimengine]
 sample_rate_hz = 1712000000
 bitstream =  /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02091B
+host = roach020914
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148

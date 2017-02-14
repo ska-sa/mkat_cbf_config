@@ -47,8 +47,7 @@ source_poly = 3
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
-#hosts = roach020956,roach020961,roach020962,roach020941
-hosts = roach020961,roach020A01,roach02095A,roach02095C
+hosts = roach020913,roach02091A,roach020928,roach020939
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
 
 # names and IPs of the sources to the f-engines
@@ -100,9 +99,7 @@ network_latency_adjust = 0
 
 [xengine]
 #hosts = ROACH4,ROACH5,ROACH6,ROACH7
-#hosts = roach02094e,roach020939,roach02095E,roach020A13
-hosts = roach020A03,roach020A0B,roach020914,roach020941
-
+hosts = roach020914,roach02091B,roach020941,roach020949
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x256f.fpg
 # x fpga clock speed
 x_fpga_clock = 230000000
@@ -135,7 +132,7 @@ multicast_interface_address = 239.9.4.1
 #sample_rate_hz = 1716741285
 sample_rate_hz = 1714308519
 bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02091B
+host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
