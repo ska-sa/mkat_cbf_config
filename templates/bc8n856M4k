@@ -15,10 +15,15 @@ time_offset_allowed_s = 5
 # what is the TTL for SPEAD metadata packets?
 spead_metapacket_ttl = 4
 
+# what is the source to this instrument?
+source_products = baseband-voltage
+
 [bengine]
 
 [beam0]
-output_products=beam_0x
+# Deprecated
+#output_products=beam_0x
+output_products = tied-array-channelised-voltage.0x
 stream_index = 0
 center_freq = 1285719000
 bandwidth = 857146000
@@ -43,8 +48,9 @@ source_poly = 2
 
 
 [beam1]
-
-output_products=beam_0y
+# Deprecated
+# output_products=beam_0y
+output_products = tied-array-channelised-voltage.0y
 stream_index = 1
 center_freq = 1285719000
 bandwidth = 857146000
@@ -68,8 +74,9 @@ weight_ant3_y = 0.25
 
 [fengine]
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
+hosts = roach020945,roach020915,roach020938,roach02095B
 
-hosts = roach020944,roach02091F,roach02095B,roach020915
+#hosts = roach020944,roach02091F,roach02095B,roach020915
 #hosts = roach020944,roach020938,roach02091F,roach020927
 #hosts = ROACH0,ROACH1,ROACH2,ROACH3
 # Note: Always make sure you revert to the default values stored, or back-up before editing file
@@ -104,7 +111,7 @@ source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
 
 # DEPRECATED
 # where should the f-data go?
-destination_mcast_ips = 239.2.1.170+16:8888
+# destination_mcast_ips = 239.2.1.170+16:8888
 
 
 # number of 10gbe ports per f-engine
@@ -148,11 +155,16 @@ network_latency_adjust = 0
 # How many QDR CT errors are acceptable?
 qdr_ct_error_threshold = 100
 
-output_products = fengine-stream
+# Deprecated
+# output_products = fengine-stream
+
+output_products = antenna-channelised-voltage
 output_destinations_base = 239.2.1.170:8888
 
 [xengine]
-hosts = roach020938,roach020A0F,roach020A0D,roach020958
+hosts = roach020A14,roach020A06,roach020953,roach020959
+
+#hosts = roach020938,roach020A0F,roach020A0D,roach020958
 #hosts = roach020958,roach020915,roach020A0F,roach020A0D
 #hosts = ROACH4,ROACH5,ROACH6,ROACH7
 
@@ -175,19 +187,17 @@ xeng_outbits = 32
 10gbe_start_ip = 10.101.0.80
 10gbe_port = 8888
 # data product names and destinations
-output_products = c856M4k
-
-
+output_products = baseline-correlation-products
 
 # DEPRECATED
+# output_products = c856M4k
 # Unicast
-output_destination_ip = 10.100.1.1
+#output_destination_ip = 10.100.1.1
 # Multicast
 #output_destination_ip = 239.100.0.1
-output_destination_port = 8888
+#output_destination_port = 8888
 
 output_destinations_base = 239.100.0.1:8888
-
 # what is the outgoing interface address? i.e. the eth interface that will send the meta information
 multicast_interface_address = 239.100.0.1
 # Packet length of 10Gbe exchange data in 64 bit words.
@@ -212,7 +222,7 @@ bitstream =  /usr/local/lib/cmc/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
 # Old naming scheme
 #bitstream =  /usr/local/lib/cmc/bitstreams/deng/r2_deng_tvg.fpg
 
-host = dsim020959
+host = dsim020A0A
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 8888
