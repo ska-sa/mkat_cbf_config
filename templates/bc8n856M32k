@@ -1,6 +1,5 @@
 [FxCorrelator]
 katcp_port = 7147
-#sample_rate_hz = 1714280000
 sample_rate_hz = 1712000000
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
@@ -13,45 +12,40 @@ sensor_poll_time = 10
 time_jitter_allowed_ms = 500
 # how close should the received f-engine times be to the actual time
 time_offset_allowed_s = 5
+# what is the TTL for SPEAD metadata packets?
+spead_metapacket_ttl = 4
+# what is the source to this instrument?
+source_products = baseband-voltage
 
 [bengine]
 
 [beam0]
-output_products=beam_0x
+output_products = tied-array-channelised-voltage.0x
+output_destinations_base = 239.9.3.1:7148
 stream_index = 0
 center_freq = 1284000000
 bandwidth = 856000000
-#meta_ip = 10.100.1.1
-#meta_ip = 127.0.0.1
-#meta_ip = 239.9.3.2
-# request from simonr, 2016-05-05
-meta_ip = 239.9.3.30
-meta_port = 7148
-data_ip = 239.9.3.30
-data_port = 7148
-source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
+weight_ant0_x = 0.25
+weight_ant1_x = 0.25
+weight_ant2_x = 0.25
+weight_ant3_x = 0.25
 source_poly = 2
 
 [beam1]
-output_products=beam_0y
+output_products=tied-array-channelised-voltage.0y
+output_destinations_base = 239.9.4.1:7148
 stream_index = 1
 center_freq = 1284000000
 bandwidth = 856000000
-meta_ip = 239.9.3.31
-meta_port = 7148
-#data_ip = 10.100.1.1
-#data_ip = 239.9.4.1
-data_ip = 239.9.3.31
-data_port = 7148
-source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
+weight_ant0_y = 0.25
+weight_ant1_y = 0.25
+weight_ant2_y = 0.25
+weight_ant3_y = 0.25
 source_poly = 3
 
 [fengine]
-#mgw: Tue May  3 11:37:15 SAST 2016: changed to symbolic roach names, needed for subarray testing
-#hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach020913,roach02091A,roach020928,roach020939
+hosts = roach020914,roach02091A,roach02091B,roach020928
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
-#bitstream = /srv/bofs/feng/r2_c856m32k_2016_Jun_17_1923.fpg
 
 # names and IPs of the sources to the f-engines
 n_antennas = 4
@@ -61,8 +55,6 @@ f_per_fpga = 2
 source_names = ant0_x,ant0_y,ant1_x,ant1_y,ant2_x,ant2_y,ant3_x,ant3_y
 # henno's lab dengine
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
-# where should the f-data go?
-destination_mcast_ips = 239.9.2.1+16:7148
 # number of 10gbe ports per f-engine
 ports_per_fengine = 2
 # how many bits per ADC sample
@@ -71,7 +63,6 @@ sample_bits = 10
 adc_demux_factor = 8
 # The processed analogue bandwidth
 bandwidth = 856000000
-#bandwidth = 857140000
 # the centre frequency on the sky
 true_cf = 1284000000
 # Number of channels produced by the f-engine
@@ -100,13 +91,15 @@ eq_poly_ant3_y = 1023
 # Delay settings
 min_load_time = 0.2
 network_latency_adjust = 0
+# How many QDR CT errors are acceptable?
+qdr_ct_error_threshold = 100
+# where should the f-data go?
+output_products = antenna-channelised-voltage
+output_destinations_base = 239.9.1.1:7148
 
 [xengine]
-#hosts = ROACH4,ROACH5,ROACH6,ROACH7
-hosts = roach020914,roach02091B,roach020941,roach020949
+hosts = roach020913,roach020941,roach020949,roach02094A
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
-#bitstream = /srv/bofs/xeng/r2_b4a4x2kf_2016_May_31_1126.fpg
-
 # x fpga clock speed
 x_fpga_clock = 230000000
 # Number of X engines per host
@@ -122,23 +115,21 @@ xeng_outbits = 32
 10gbe_start_ip = 10.101.0.110
 10gbe_port = 7148
 # data product names and destinations
-output_products = c856M32k
-output_destination_ip = 239.9.4.1
-output_destination_port = 7148
-# what is the outgoing interface address? i.e. the eth interface that will send the meta information
-multicast_interface_address = 10.100.24.1
+output_products = baseline-correlation-products
+output_destinations_base = 239.9.2.1:7148
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
+# How many QDR VACC errors are acceptable?
+qdr_vacc_error_threshold = 100
 
 [dsimengine]
-#sample_rate_hz = 1714280000
 sample_rate_hz = 1712000000
 bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
 host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.10.0.64
-pol1_destination_start_ip = 239.10.0.66
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66
