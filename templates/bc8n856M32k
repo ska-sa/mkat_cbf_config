@@ -22,11 +22,12 @@ source_products = baseband-voltage
 [fengine]
 # Need to have 4 ports
 # Hardcoding roaches for now as some have dhcp port errors when used as either x/f engines
-#hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach020945,roach02095B,roach020938,roach020915
+#hosts = roach020915,roach020938,roach020A14,roach020A06
+#hosts = roach020A14,roach020A06,roach020953,roach020959
+hosts = roach020953,roach020938,roach020915,roach020A14
 
-#bitstream = /usr/local/lib/cmc/bitstreams/feng_wide/r2_c856m32k_2017_Feb_21_1900.fpg
 bitstream = /usr/local/lib/cmc/bitstreams/feng_wide/r2_c856m32k.fpg
+#bitstream = /tmp/r2_c856m32k_2017_Apr_26_1926.fpg
 
 # names and IPs of the sources to the f-engines
 n_antennas = 4
@@ -85,16 +86,19 @@ network_latency_adjust = 0
 # How many QDR CT errors are acceptable?
 qdr_ct_error_threshold = 100
 
-output_products = fengine-stream
-output_destinations_base = 239.2.1.170:8888
+#output_products = fengine-stream
+#output_destinations_base = 239.2.1.170:8888
 
 
 [xengine]
 # Hardcoding roaches for now as some have dhcp port errors when used as either x/f engines
-hosts = roach020A14,roach020A06,roach020953,roach020959
+#hosts = roach020A14,roach020A06,roach020953,roach020959
+#hosts = roach020953,roach020959,roach02095B,roach020945
+hosts = roach020A06,roach020945,roach02095B,roach020959
 
 #bitstream = /usr/local/src/mkat_fpga/bitstreams/xeng_wide/r2_4a4x2kf.fpg
-bitstream = /usr/local/src/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf_2017_Jan_27_1654.fpg
+bitstream = /usr/local/src/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
+#bitstream = /usr/local/src/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf_2017_Jan_27_1654.fpg
 
 # x fpga clock speed
 x_fpga_clock = 230000000

@@ -14,71 +14,58 @@ time_jitter_allowed_ms = 500
 time_offset_allowed_s = 5
 # what is the TTL for SPEAD metadata packets?
 spead_metapacket_ttl = 4
-
 # what is the source to this instrument?
 source_products = baseband-voltage
 
 [bengine]
 
 [beam0]
-# Deprecated
-#output_products=beam_0x
 output_products = tied-array-channelised-voltage.0x
+output_destinations_base = 239.9.3.1:7148
 stream_index = 0
 center_freq = 1285719000
 bandwidth = 857146000
-#bandwidth = 856000000
-
-# DEPRECATED
-meta_ip = 10.100.1.10
-meta_ip = 239.100.1.1
-meta_port = 8889
-data_ip = 239.100.1.1
-data_port = 8889
-source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
-
-output_destinations_base = 239.100.1.1:8889
-meta_destinations = 239.100.1.1+0:8889
-stream_index = 0
 weight_ant0_x = 0.25
 weight_ant1_x = 0.25
 weight_ant2_x = 0.25
 weight_ant3_x = 0.25
 source_poly = 2
 
+# Deprecated
+#output_products=beam_0x
+#bandwidth = 856000000
+#meta_ip = 10.100.1.10
+#meta_ip = 239.100.1.1
+#meta_port = 8889
+#data_ip = 239.100.1.1
+#data_port = 8889
+#source_weights = ant0_x:1,ant1_x:1,ant2_x:1,ant3_x:1
+
 
 [beam1]
-# Deprecated
-# output_products=beam_0y
 output_products = tied-array-channelised-voltage.0y
+output_destinations_base = 239.9.4.1:7148
 stream_index = 1
 center_freq = 1285719000
 bandwidth = 857146000
-#bandwidth = 856000000
-
-# DEPRECATED
-meta_ip = 239.100.1.1
-#meta_ip = 127.0.0.1
-meta_port = 8890
-data_ip = 239.100.1.1
-data_port = 8890
-source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
-source_poly = 3
-
-output_destinations_base = 239.100.1.1:8890
-#meta_destinations = 239.100.1.1+0:8890
 weight_ant0_y = 0.25
 weight_ant1_y = 0.25
 weight_ant2_y = 0.25
 weight_ant3_y = 0.25
+source_poly = 3
+# Deprecated
+# output_products=beam_0y
+#meta_ip = 239.100.1.1
+#meta_port = 8890
+#data_ip = 239.100.1.1
+#data_port = 8890
+#source_weights = ant0_y:2,ant1_y:2,ant2_y:2,ant3_y:2
 
 [fengine]
-#hosts = ROACH0,ROACH1,ROACH2,ROACH3
-hosts = roach020945,roach020915,roach020938,roach02095B
+hosts = roach020A14,roach020A06,roach020915,roach020938
 
 #hosts = roach020944,roach02091F,roach02095B,roach020915
 #hosts = roach020944,roach020938,roach02091F,roach020927
-#hosts = ROACH0,ROACH1,ROACH2,ROACH3
 # Note: Always make sure you revert to the default values stored, or back-up before editing file
 
 bitstream = /usr/local/src/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
@@ -149,7 +136,7 @@ eq_poly_ant2_y = 300
 eq_poly_ant3_x = 300
 eq_poly_ant3_y = 300
 # Delay settings
-min_load_time = 23
+min_load_time = 0.2
 network_latency_adjust = 0
 
 # How many QDR CT errors are acceptable?
@@ -162,11 +149,10 @@ output_products = antenna-channelised-voltage
 output_destinations_base = 239.2.1.170:8888
 
 [xengine]
-hosts = roach020A14,roach020A06,roach020953,roach020959
+hosts = roach020953,roach020959,roach02095B,roach020945
 
 #hosts = roach020938,roach020A0F,roach020A0D,roach020958
 #hosts = roach020958,roach020915,roach020A0F,roach020A0D
-#hosts = ROACH4,ROACH5,ROACH6,ROACH7
 
 # Note: Always make sure you revert to the default values stored, or back-up before editing file
 bitstream = /usr/local/src/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x256f.fpg
