@@ -54,6 +54,7 @@ source_poly = 3
 
 [fengine]
 hosts = roach020914,roach02091A,roach02091B,roach020928,roach020939,roach020958,roach02095E,roach02095F
+#bitstream = /srv/bofs/feng/r2_c856m4k_2017_Mar_28_1833.fpg
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
 
 # names and IPs of the sources to the f-engines
