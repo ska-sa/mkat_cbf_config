@@ -68,7 +68,7 @@ true_cf = 1285723806
 # Number of channels produced by the f-engine
 n_chans = 4096
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
-fft_shift = 8191
+fft_shift = 511
 # The fixed-point format post FFT in the F engines
 quant_format = 8.7
 # Packet length of 10Gbe exchange data in 64 bit words.
@@ -80,14 +80,14 @@ quant_format = 8.7
 # SPEAD flavour, string in the form XX,YY. Default: 64,48. See the SPEAD documentation for details.
 spead_flavour = 64,48
 # Equalisation settings - one per input - must have the same suffix as the source names above
-eq_poly_ant0_x = 300
-eq_poly_ant0_y = 300
-eq_poly_ant1_x = 300
-eq_poly_ant1_y = 300
-eq_poly_ant2_x = 300
-eq_poly_ant2_y = 300
-eq_poly_ant3_x = 300
-eq_poly_ant3_y = 300
+eq_poly_ant0_x = 200
+eq_poly_ant0_y = 200
+eq_poly_ant1_x = 200
+eq_poly_ant1_y = 200
+eq_poly_ant2_x = 200
+eq_poly_ant2_y = 200
+eq_poly_ant3_x = 200
+eq_poly_ant3_y = 200
 # Delay settings
 min_load_time = 0.2
 network_latency_adjust = 0
@@ -107,7 +107,7 @@ x_fpga_clock = 225000000
 # Number of X engines per host
 x_per_fpga = 4
 # Number of spectra to integrate in QDR
-accumulation_len = 816
+accumulation_len = 408
 # Number of accumulations performed in the X engine cores
 xeng_accumulation_len = 256
 # Number of bits the vacc uses to represent one number
