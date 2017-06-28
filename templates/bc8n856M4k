@@ -21,7 +21,7 @@ source_products = baseband-voltage
 
 [beam0]
 output_products = tied-array-channelised-voltage.0x
-output_destinations_base = 239.9.3.30:7148
+output_destinations_base = 239.9.6.1:7148
 stream_index = 0
 center_freq = 1285723806
 bandwidth = 857149204
@@ -33,7 +33,7 @@ source_poly = 2
 
 [beam1]
 output_products = tied-array-channelised-voltage.0y
-output_destinations_base = 239.9.3.31:7148
+output_destinations_base = 239.9.8.1:7148
 stream_index = 1
 center_freq = 1285723806
 bandwidth = 857149204
