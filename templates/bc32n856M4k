@@ -23,7 +23,7 @@ switch_delay = 10
 
 [beam0]
 output_products = tied-array-channelised-voltage.0x
-output_destinations_base = 239.9.23.1:7147
+output_destinations_base = 239.9.23.1:7148
 stream_index = 0
 center_freq = 1284000000
 bandwidth = 856000000
@@ -47,7 +47,7 @@ source_pol = 2
 
 [beam1]
 output_products=tied-array-channelised-voltage.0y
-output_destinations_base = 239.9.24.1:7147
+output_destinations_base = 239.9.24.1:7148
 stream_index = 1
 center_freq = 1284000000
 bandwidth = 856000000
