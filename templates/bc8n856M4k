@@ -4,25 +4,24 @@ sample_rate_hz = 1712000000
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
-# How long should we wait for ARP resolution?
-arp_wait_time = 20
-# at what interval do we poll sensors?
-sensor_poll_time = 10
-# how much time difference between the received f-engine times is allowed?
+sensor_poll_time = 7
 time_jitter_allowed_ms = 500
 # how close should the received f-engine times be to the actual time
 time_offset_allowed_s = 5
+# how long should we wait to allow the switches to configure, default 10s
+switch_delay = 10
 # what is the TTL for SPEAD metadata packets?
 spead_metapacket_ttl = 4
 # what is the source to this instrument?
 source_products = baseband-voltage
+# How long should we wait for ARP resolution?
+arp_wait_time = 20
 
-[bengine]
-
+ 
 [beam0]
 output_products = tied-array-channelised-voltage.0x
-output_destinations_base = 239.9.3.1:7148
-#meta_destinations = 239.9.3.30+0:7148
+#output_destinations_base = 239.9.6.0:7148
+output_destinations_base = MULTICAST0:7148
 stream_index = 0
 center_freq = 1284000000
 bandwidth = 856000000
@@ -31,10 +30,11 @@ weight_ant1_x = 0.25
 weight_ant2_x = 0.25
 weight_ant3_x = 0.25
 source_poly = 2
-
+ 
 [beam1]
-output_products=tied-array-channelised-voltage.0y
-output_destinations_base = 239.9.4.1:7148
+output_products = tied-array-channelised-voltage.0y
+#output_destinations_base = 239.9.8.0:7148
+output_destinations_base = MULTICAST1:7148
 stream_index = 1
 center_freq = 1284000000
 bandwidth = 856000000
@@ -43,22 +43,27 @@ weight_ant1_y = 0.25
 weight_ant2_y = 0.25
 weight_ant3_y = 0.25
 source_poly = 3
-
+ 
 [fengine]
-hosts = roach020914,roach02091A,roach02091B,roach020928
-bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
+#leaf16
+#hosts = skarab02040F-01,skarab02040E-01,skarab020502-01,skarab02040A-01
+#leaf7
+#hosts = skarab020709-01,skarab020711-01,skarab020806-01,skarab02080B-01
+#leaf12
+hosts = skarab02043B-01,skarab02043C-01,skarab020523-01,skarab020604-01
+#hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
 
-# names and IPs of the sources to the f-engines
-n_antennas = 4
-# Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
-f_per_fpga = 2
-# names to give the source polarisations - these must map to the IPs
-source_names = ant0_x,ant0_y,ant1_x,ant1_y,ant2_x,ant2_y,ant3_x,ant3_y
-# henno's lab dengine
-source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
+#bitstream = /srv/bofs/feng/s_c856m4k_2018-03-27_0943.fpg
+bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
+
+
 # number of 10gbe ports per f-engine
 ports_per_fengine = 2
-# how many bits per ADC sample
+source_names = ant0_x,ant0_y,ant1_x,ant1_y,ant2_x,ant2_y,ant3_x,ant3_y
+source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7 
+# names and IPs of the sources to the f-engines
+n_antennas = 4
+f_per_fpga = 2
 sample_bits = 10
 # how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
@@ -68,6 +73,7 @@ bandwidth = 856000000
 true_cf = 1284000000
 # Number of channels produced by the f-engine
 n_chans = 4096
+pfb_group_delay=16384
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
 fft_shift = 511
 # The fixed-point format post FFT in the F engines
@@ -78,17 +84,14 @@ quant_format = 8.7
 10gbe_start_mac = 02:02:00:00:01:10
 10gbe_start_ip = 10.100.0.150
 10gbe_port = 7148
-# SPEAD flavour, string in the form XX,YY. Default: 64,48. See the SPEAD documentation for details.
-spead_flavour = 64,48
-# Equalisation settings - one per input - must have the same suffix as the source names above
-eq_poly_ant0_x = 200
-eq_poly_ant0_y = 200
-eq_poly_ant1_x = 200
-eq_poly_ant1_y = 200
-eq_poly_ant2_x = 200
-eq_poly_ant2_y = 200
-eq_poly_ant3_x = 200
-eq_poly_ant3_y = 200
+eq_poly_ant0_x = 300
+eq_poly_ant0_y = 300
+eq_poly_ant1_x = 300
+eq_poly_ant1_y = 300
+eq_poly_ant2_x = 300
+eq_poly_ant2_y = 300
+eq_poly_ant3_x = 300
+eq_poly_ant3_y = 300
 # Delay settings
 min_load_time = 0.2
 network_latency_adjust = 0
@@ -96,19 +99,28 @@ network_latency_adjust = 0
 qdr_ct_error_threshold = 100
 # where should the f-data go?
 output_products = antenna-channelised-voltage
-output_destinations_base = 239.9.1.1:7148
-
+#output_destinations_base = 239.9.2.0:7148
+output_destinations_base = MULTICAST2:7148
+spead_flavour = 64,48
 
 [xengine]
-hosts = roach020913,roach020941,roach020949,roach02094A
-bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x256f.fpg
+#leaf16
+#hosts = skarab02040B-01,skarab02040C-01,skarab02040D-01,skarab020407-01
+#leaf7
+#hosts = skarab020801-01,skarab020905-01,skarab020803-01,skarab020805-01
+#leaf12
+hosts = skarab020518-01,skarab020520-01,skarab020521-01,skarab020522-01
+#hosts = SKARAB4,SKARAB5,SKARAB6,SKARAB7
+bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/s_b4a4x256f.fpg
+#bitstream = /srv/bofs/xeng/s_b4a4x256f_slovacc_2018-03-01_1255.fpg
+#bitstream = /srv/bofs/xeng/s_b4a4x256f_bf_gain_2018-03-27_1741.fpg
+
 # x fpga clock speed
-x_fpga_clock = 230000000
+x_fpga_clock = 240000000
 # Number of X engines per host
 x_per_fpga = 4
 # Number of spectra to integrate in QDR
-accumulation_len = 408
-# Number of accumulations performed in the X engine cores
+accumulation_len = 816
 xeng_accumulation_len = 256
 # Number of bits the vacc uses to represent one number
 xeng_outbits = 32
@@ -118,21 +130,25 @@ xeng_outbits = 32
 10gbe_port = 7148
 # data product names and destinations
 output_products = baseline-correlation-products
-output_destinations_base = 239.9.2.1:7148
+#output_destinations_base = 239.9.4.0:7148
+output_destinations_base = MULTICAST3:7148
+# what is the outgoing interface address? i.e. the eth interface that will send the meta information
+multicast_interface_address = 10.100.22.13
 # Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
-# How many QDR VACC errors are acceptable?
-qdr_vacc_error_threshold = 100
 
 [dsimengine]
 sample_rate_hz = 1712000000
-bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02095F
-# host = roach02094E
-10gbe_start_mac = 02:02:00:00:50:01
-10gbe_start_ip = 10.101.0.40
+#bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
+#host = roach02064F
+bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
+#host = skarab02081A-01
+host = skarab020710-01
+10gbe_start_mac = 01:fe:00:02:06:4F:00
+10gbe_start_ip = 10.100.15.141
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.100.0
-pol1_destination_start_ip = 239.101.100.2
+pol0_destination_start_ip = 239.101.20.64
+pol1_destination_start_ip = 239.101.20.66
+
