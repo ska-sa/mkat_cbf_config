@@ -1,6 +1,6 @@
 [FxCorrelator]
 katcp_port = 7147
-sample_rate_hz = 1712000000
+sample_rate_hz = 1088000000
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -22,10 +22,9 @@ source_products = baseband-voltage
 [beam0]
 output_products = tied-array-channelised-voltage.0x
 output_destinations_base = 239.9.3.1:7148
-#meta_destinations = 239.9.3.30+0:7148
 stream_index = 0
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 816000000
+bandwidth = 544000000
 weight_ant0_x = 0.25
 weight_ant1_x = 0.25
 weight_ant2_x = 0.25
@@ -36,8 +35,8 @@ source_poly = 2
 output_products=tied-array-channelised-voltage.0y
 output_destinations_base = 239.9.4.1:7148
 stream_index = 1
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 816000000
+bandwidth = 544000000
 weight_ant0_y = 0.25
 weight_ant1_y = 0.25
 weight_ant2_y = 0.25
@@ -46,7 +45,7 @@ source_poly = 3
 
 [fengine]
 hosts = roach020914,roach02091A,roach02091B,roach020928
-bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
+bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
 
 # names and IPs of the sources to the f-engines
 n_antennas = 4
@@ -63,13 +62,13 @@ sample_bits = 10
 # how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
 # The processed analogue bandwidth
-bandwidth = 856000000
+bandwidth = 544000000
 # the centre frequency on the sky
-true_cf = 1284000000
+true_cf = 816000000
 # Number of channels produced by the f-engine
-n_chans = 4096
+n_chans = 32768
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
-fft_shift = 511
+fft_shift = 16383
 # The fixed-point format post FFT in the F engines
 quant_format = 8.7
 # Packet length of 10Gbe exchange data in 64 bit words.
@@ -81,14 +80,14 @@ quant_format = 8.7
 # SPEAD flavour, string in the form XX,YY. Default: 64,48. See the SPEAD documentation for details.
 spead_flavour = 64,48
 # Equalisation settings - one per input - must have the same suffix as the source names above
-eq_poly_ant0_x = 200
-eq_poly_ant0_y = 200
-eq_poly_ant1_x = 200
-eq_poly_ant1_y = 200
-eq_poly_ant2_x = 200
-eq_poly_ant2_y = 200
-eq_poly_ant3_x = 200
-eq_poly_ant3_y = 200
+eq_poly_ant0_x = 1023
+eq_poly_ant0_y = 1023
+eq_poly_ant1_x = 1023
+eq_poly_ant1_y = 1023
+eq_poly_ant2_x = 1023
+eq_poly_ant2_y = 1023
+eq_poly_ant3_x = 1023
+eq_poly_ant3_y = 1023
 # Delay settings
 min_load_time = 0.2
 network_latency_adjust = 0
@@ -98,16 +97,15 @@ qdr_ct_error_threshold = 100
 output_products = antenna-channelised-voltage
 output_destinations_base = 239.9.1.1:7148
 
-
 [xengine]
 hosts = roach020913,roach020941,roach020949,roach02094A
-bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x256f.fpg
+bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b4a4x2kf.fpg
 # x fpga clock speed
 x_fpga_clock = 230000000
 # Number of X engines per host
 x_per_fpga = 4
 # Number of spectra to integrate in QDR
-accumulation_len = 408
+accumulation_len = 51
 # Number of accumulations performed in the X engine cores
 xeng_accumulation_len = 256
 # Number of bits the vacc uses to represent one number
@@ -127,12 +125,11 @@ output_destinations_base = 239.9.2.1:7148
 qdr_vacc_error_threshold = 100
 
 [dsimengine]
-sample_rate_hz = 1712000000
-bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02095F
-# host = roach02094E
+sample_rate_hz = 1088000000
+bitstream =   /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
+host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.100.0
-pol1_destination_start_ip = 239.101.100.2
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66

@@ -1,6 +1,6 @@
 [FxCorrelator]
 katcp_port = 7147
-sample_rate_hz = 1712000000
+sample_rate_hz = 1088000000
 timestamp_bits = 48
 # Version of IGMP protocol to force on the engines
 igmp_version = 2
@@ -24,8 +24,8 @@ output_products = tied-array-channelised-voltage.0x
 output_destinations_base = 239.9.3.1:7148
 #meta_destinations = 239.9.3.30+0:7148
 stream_index = 0
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 816000000
+bandwidth = 544000000
 weight_ant0_x = 0.25
 weight_ant1_x = 0.25
 weight_ant2_x = 0.25
@@ -36,8 +36,8 @@ source_poly = 2
 output_products=tied-array-channelised-voltage.0y
 output_destinations_base = 239.9.4.1:7148
 stream_index = 1
-center_freq = 1284000000
-bandwidth = 856000000
+center_freq = 816000000
+bandwidth = 544000000
 weight_ant0_y = 0.25
 weight_ant1_y = 0.25
 weight_ant2_y = 0.25
@@ -63,9 +63,9 @@ sample_bits = 10
 # how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
 # The processed analogue bandwidth
-bandwidth = 856000000
+true_cf = 816000000
+bandwidth = 544000000
 # the centre frequency on the sky
-true_cf = 1284000000
 # Number of channels produced by the f-engine
 n_chans = 4096
 # FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
@@ -127,12 +127,11 @@ output_destinations_base = 239.9.2.1:7148
 qdr_vacc_error_threshold = 100
 
 [dsimengine]
-sample_rate_hz = 1712000000
+sample_rate_hz = 1088000000
 bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02095F
-# host = roach02094E
+host = roach02094E
 10gbe_start_mac = 02:02:00:00:50:01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.100.0
-pol1_destination_start_ip = 239.101.100.2
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66

@@ -1,0 +1,186 @@
+[FxCorrelator]
+katcp_port = 7147
+sample_rate_hz = 1088000000
+timestamp_bits = 48
+# Version of IGMP protocol to force on the engines
+igmp_version = 2
+# How long should we wait for ARP resolution?
+arp_wait_time = 20
+# at what interval do we poll sensors?
+sensor_poll_time = 10
+# how much time difference between the received f-engine times is allowed?
+time_jitter_allowed_ms = 500
+# how close should the received f-engine times be to the actual time
+time_offset_allowed_s = 5
+# what is the TTL for SPEAD metadata packets?
+spead_metapacket_ttl = 4
+# what is the source to this instrument?
+source_products = baseband-voltage
+
+[bengine]
+
+[beam0]
+output_products = tied-array-channelised-voltage.0x
+output_destinations_base = 239.9.23.1:7148
+#meta_destinations = 239.9.23.30+0:7148
+stream_index = 0
+center_freq = 816000000
+bandwidth = 544000000
+weight_ant0_x = 0.0625
+weight_ant1_x = 0.0625
+weight_ant2_x = 0.0625
+weight_ant3_x = 0.0625
+weight_ant4_x = 0.0625
+weight_ant5_x = 0.0625
+weight_ant6_x = 0.0625
+weight_ant7_x = 0.0625
+weight_ant8_x = 0.0625
+weight_ant9_x = 0.0625
+weight_ant10_x = 0.0625
+weight_ant11_x = 0.0625
+weight_ant12_x = 0.0625
+weight_ant13_x = 0.0625
+weight_ant14_x = 0.0625
+weight_ant15_x = 0.0625
+source_pol = 2
+
+[beam1]
+output_products=tied-array-channelised-voltage.0y
+output_destinations_base = 239.9.24.1:7148
+stream_index = 1
+center_freq = 816000000
+bandwidth = 544000000
+weight_ant0_y = 0.0625
+weight_ant1_y = 0.0625
+weight_ant2_y = 0.0625
+weight_ant3_y = 0.0625
+weight_ant4_y = 0.0625
+weight_ant5_y = 0.0625
+weight_ant6_y = 0.0625
+weight_ant7_y = 0.0625
+weight_ant8_y = 0.0625
+weight_ant9_y = 0.0625
+weight_ant10_y = 0.0625
+weight_ant11_y = 0.0625
+weight_ant12_y = 0.0625
+weight_ant13_y = 0.0625
+weight_ant14_y = 0.0625
+weight_ant15_y = 0.0625
+source_poly = 3
+
+
+[fengine]
+hosts = roach02091F,roach020922,roach020927,roach02093A,roach020944,roach020A0D,roach020A0F,roach020A12,roach020910,roach020912,roach02091C,roach02091D,roach020933,roach02094C,roach02095A,roach020962
+bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m32k.fpg
+
+# names and IPs of the sources to the f-engines
+n_antennas = 16
+# Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
+f_per_fpga = 2
+# names to give the source polarisations - these must map to the IPs
+source_names = ant0_x,ant0_y,ant1_x,ant1_y,ant2_x,ant2_y,ant3_x,ant3_y,ant4_x,ant4_y,ant5_x,ant5_y,ant6_x,ant6_y,ant7_x,ant7_y,ant8_x,ant8_y,ant9_x,ant9_y,ant10_x,ant10_y,ant11_x,ant11_y,ant12_x,ant12_y,ant13_x,ant13_y,ant14_x,ant14_y,ant15_x,ant15_y
+source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7,INPUT8,INPUT9,INPUT10,INPUT11,INPUT12,INPUT13,INPUT14,INPUT15,INPUT16,INPUT17,INPUT18,INPUT19,INPUT20,INPUT21,INPUT22,INPUT23,INPUT24,INPUT25,INPUT26,INPUT27,INPUT28,INPUT29,INPUT30,INPUT31
+# number of 10gbe ports per f-engine
+ports_per_fengine = 2
+# how many bits per ADC sample
+sample_bits = 10
+# how many parallel ADC samples do we get per digitiser clock?
+adc_demux_factor = 8
+# The processed analogue bandwidth
+bandwidth = 544000000
+# the centre frequency on the sky
+true_cf = 816000000
+# Number of channels produced by the f-engine
+n_chans = 32768
+# FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
+fft_shift = 16383
+# The fixed-point format post FFT in the F engines
+quant_format = 8.7
+# Packet length of 10Gbe exchange data in 64 bit words.
+10gbe_pkt_len = 128
+# MAC, IP and port for 10Gbe cores
+10gbe_start_mac = 02:02:00:00:01:10
+10gbe_start_ip = 10.100.0.150
+10gbe_port = 7148
+# SPEAD flavour, string in the form XX,YY. Default: 64,48. See the SPEAD documentation for details.
+spead_flavour = 64,48
+# Equalisation settings - one per input - must have the same suffix as the source names above
+eq_poly_ant0_x = 1023
+eq_poly_ant0_y = 1023
+eq_poly_ant1_x = 1023
+eq_poly_ant1_y = 1023
+eq_poly_ant2_x = 1023
+eq_poly_ant2_y = 1023
+eq_poly_ant3_x = 1023
+eq_poly_ant3_y = 1023
+eq_poly_ant4_x = 1023
+eq_poly_ant4_y = 1023
+eq_poly_ant5_x = 1023
+eq_poly_ant5_y = 1023
+eq_poly_ant6_x = 1023
+eq_poly_ant6_y = 1023
+eq_poly_ant7_x = 1023
+eq_poly_ant7_y = 1023
+eq_poly_ant8_x = 1023
+eq_poly_ant8_y = 1023
+eq_poly_ant9_x = 1023
+eq_poly_ant9_y = 1023
+eq_poly_ant10_x = 1023
+eq_poly_ant10_y = 1023
+eq_poly_ant11_x = 1023
+eq_poly_ant11_y = 1023
+eq_poly_ant12_x = 1023
+eq_poly_ant12_y = 1023
+eq_poly_ant13_x = 1023
+eq_poly_ant13_y = 1023
+eq_poly_ant14_x = 1023
+eq_poly_ant14_y = 1023
+eq_poly_ant15_x = 1023
+eq_poly_ant15_y = 1023
+# Delay settings
+min_load_time = 0.2
+network_latency_adjust = 0
+# How many QDR CT errors are acceptable?
+qdr_ct_error_threshold = 100
+# where should the f-data go?
+output_products = antenna-channelised-voltage
+output_destinations_base = 239.9.21.1:7148
+
+[xengine]
+bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/r2_b16a4x512f.fpg
+hosts = roach020911,roach020936,roach020946,roach02094E,roach02095C,roach020961,roach020A01,roach020A0E,roach020923,roach02092B,roach020951,roach020954,roach020955,roach020A03,roach020A08,roach020A0B
+# x fpga clock speed
+x_fpga_clock = 230000000
+# Number of X engines per host
+x_per_fpga = 4
+# Number of spectra to integrate in QDR
+accumulation_len = 51
+# Number of accumulations performed in the X engine cores
+xeng_accumulation_len = 256
+# Number of bits the vacc uses to represent one number
+xeng_outbits = 32
+# MAC, IP and port for 10Gbe cores
+10gbe_start_mac = 02:02:00:00:02:10
+10gbe_start_ip = 10.101.0.110
+10gbe_port = 7148
+# data product names and destinations
+output_products = baseline-correlation-products
+output_destinations_base = 239.9.22.1:7148
+# Packet length of 10Gbe exchange data in 64 bit words.
+10gbe_pkt_len = 512
+# Gap, in cycles, enforced between output packets
+#32768 needed for 0.5s dumps.
+#10gbe_pkt_gapsize = 32768
+10gbe_pkt_gapsize = 131071
+# How many QDR VACC errors are acceptable?
+qdr_vacc_error_threshold = 100
+
+[dsimengine]
+sample_rate_hz = 1088000000
+bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
+host = roach020914
+10gbe_start_mac = 02:02:00:00:50:01
+10gbe_start_ip = 10.101.0.40
+10gbe_port = 7148
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66
