@@ -1,96 +1,151 @@
-# 1 "<stdin>"
-# 1 "<command-line>"
-# 1 "<stdin>"
-# 34 "<stdin>"
 [FxCorrelator]
 katcp_port = 7147
 sample_rate_hz = 1712000000
 timestamp_bits = 48
+# Version of IGMP protocol to force on the engines
 igmp_version = 2
+# How long should we wait for ARP resolution?
 arp_wait_time = 20
+# at what interval do we poll sensors?
 sensor_poll_time = 20
+# how much time difference between the received f-engine times is allowed?
 time_jitter_allowed_ms = 500
+# how close should the received f-engine times be to the actual time
 time_offset_allowed_s = 5
-spead_metapacket_ttl = 4
-source_products = baseband-voltage
+# how long should we wait to allow the switches to configure, default 10s
 switch_delay = 10
+# what is the TTL for SPEAD metadata packets?
+spead_metapacket_ttl = 4
+# what is the source to this instrument?
+source_products = baseband-voltage
 
 [bengine]
 
 [beam0]
 output_products = tied-array-channelised-voltage.0x
-output_destinations_base = 239.101.96.0:7148
+output_destinations_base = MULTICAST0:7148
 stream_index = 0
-center_freq = 1284000000
+center_freq = 428000000
 bandwidth = 856000000
-weight_ant0_x = 0.0625
-weight_ant1_x = 0.0625
-weight_ant2_x = 0.0625
-weight_ant3_x = 0.0625
-weight_ant4_x = 0.0625
-weight_ant5_x = 0.0625
-weight_ant6_x = 0.0625
-weight_ant7_x = 0.0625
-weight_ant8_x = 0.0625
-weight_ant9_x = 0.0625
-weight_ant10_x = 0.0625
-weight_ant11_x = 0.0625
-weight_ant12_x = 0.0625
-weight_ant13_x = 0.0625
-weight_ant14_x = 0.0625
-weight_ant15_x = 0.0625
+weight_ant0_x = 1
+weight_ant1_x = 1
+weight_ant2_x = 1
+weight_ant3_x = 1
+weight_ant4_x = 1
+weight_ant5_x = 1
+weight_ant6_x = 1
+weight_ant7_x = 1
+weight_ant8_x = 1
+weight_ant9_x = 1
+weight_ant10_x = 1
+weight_ant11_x = 1
+weight_ant12_x = 1
+weight_ant13_x = 1
+weight_ant14_x = 1
+weight_ant15_x = 1
+weight_ant16_x = 1
+weight_ant17_x = 1
+weight_ant18_x = 1
+weight_ant19_x = 1
+weight_ant20_x = 1
+weight_ant21_x = 1
+weight_ant22_x = 1
+weight_ant23_x = 1
+weight_ant24_x = 1
+weight_ant25_x = 1
+weight_ant26_x = 1
+weight_ant27_x = 1
+weight_ant28_x = 1
+weight_ant29_x = 1
+weight_ant30_x = 1
+weight_ant31_x = 1
 source_pol = 2
+beng_outbits=8
+# Beam quantiser gain = 1/sqrt(n_ants)
+quant_gain = 0.18
 
 [beam1]
-output_products=tied-array-channelised-voltage.0y
-output_destinations_base = 239.101.97.0:7148
+output_products = tied-array-channelised-voltage.0y
+output_destinations_base = MULTICAST1:7148
 stream_index = 1
-center_freq = 1284000000
+center_freq = 428000000
 bandwidth = 856000000
-weight_ant0_y = 0.0625
-weight_ant1_y = 0.0625
-weight_ant2_y = 0.0625
-weight_ant3_y = 0.0625
-weight_ant4_y = 0.0625
-weight_ant5_y = 0.0625
-weight_ant6_y = 0.0625
-weight_ant7_y = 0.0625
-weight_ant8_y = 0.0625
-weight_ant9_y = 0.0625
-weight_ant10_y = 0.0625
-weight_ant11_y = 0.0625
-weight_ant12_y = 0.0625
-weight_ant13_y = 0.0625
-weight_ant14_y = 0.0625
-weight_ant15_y = 0.0625
+weight_ant0_y = 1
+weight_ant1_y = 1
+weight_ant2_y = 1
+weight_ant3_y = 1
+weight_ant4_y = 1
+weight_ant5_y = 1
+weight_ant6_y = 1
+weight_ant7_y = 1
+weight_ant8_y = 1
+weight_ant9_y = 1
+weight_ant10_y = 1
+weight_ant11_y = 1
+weight_ant12_y = 1
+weight_ant13_y = 1
+weight_ant14_y = 1
+weight_ant15_y = 1
+weight_ant16_y = 1
+weight_ant17_y = 1
+weight_ant18_y = 1
+weight_ant19_y = 1
+weight_ant20_y = 1
+weight_ant21_y = 1
+weight_ant22_y = 1
+weight_ant23_y = 1
+weight_ant24_y = 1
+weight_ant25_y = 1
+weight_ant26_y = 1
+weight_ant27_y = 1
+weight_ant28_y = 1
+weight_ant29_y = 1
+weight_ant30_y = 1
+weight_ant31_y = 1
 source_poly = 3
-
-
+beng_outbits=8
+# Beam quantiser gain = 1/sqrt(n_ants)
+quant_gain = 0.18
 
 [fengine]
+#hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3,SKARAB4,SKARAB5,SKARAB6,SKARAB7,SKARAB8,SKARAB9,SKARAB10,SKARAB11,SKARAB12,SKARAB13,SKARAB14,SKARAB15,SKARAB16,SKARAB17,SKARAB18,SKARAB19,SKARAB20,SKARAB21,SKARAB22,SKARAB23,SKARAB24,SKARAB25,SKARAB26,SKARAB27,SKARAB28,SKARAB29,SKARAB30,SKARAB31
 hosts = skarab02060B-01,skarab02060C-01,skarab02060E-01,skarab020702-01,skarab020703-01,skarab020704-01,skarab020705-01,skarab020707-01,skarab02070A-01,skarab02070B-01,skarab02070C-01,skarab02070D-01,skarab02070E-01,skarab02070F-01,skarab020706-01,skarab020708-01,skarab020512-01,skarab020513-01,skarab020515-01,skarab020516-01,skarab020517-01,skarab020519-01,skarab02050A-01,skarab02050B-01,skarab02050C-01,skarab02050D-01,skarab02050E-01,skarab02050F-01,skarab02051D-01,skarab02051E-01,skarab020603-01,skarab020501-01
-
 bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
 
+# names and IPs of the sources to the f-engines
 n_antennas = 32
+# Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
+# names to give the source polarisations - these must map to the IPs
 source_names = ant0_x,ant0_y,ant1_x,ant1_y,ant2_x,ant2_y,ant3_x,ant3_y,ant4_x,ant4_y,ant5_x,ant5_y,ant6_x,ant6_y,ant7_x,ant7_y,ant8_x,ant8_y,ant9_x,ant9_y,ant10_x,ant10_y,ant11_x,ant11_y,ant12_x,ant12_y,ant13_x,ant13_y,ant14_x,ant14_y,ant15_x,ant15_y,ant16_x,ant16_y,ant17_x,ant17_y,ant18_x,ant18_y,ant19_x,ant19_y,ant20_x,ant20_y,ant21_x,ant21_y,ant22_x,ant22_y,ant23_x,ant23_y,ant24_x,ant24_y,ant25_x,ant25_y,ant26_x,ant26_y,ant27_x,ant27_y,ant28_x,ant28_y,ant29_x,ant29_y,ant30_x,ant30_y,ant31_x,ant31_y
-
+# Multicast input placeholders
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7,INPUT8,INPUT9,INPUT10,INPUT11,INPUT12,INPUT13,INPUT14,INPUT15,INPUT16,INPUT17,INPUT18,INPUT19,INPUT20,INPUT21,INPUT22,INPUT23,INPUT24,INPUT25,INPUT26,INPUT27,INPUT28,INPUT29,INPUT30,INPUT31,INPUT32,INPUT33,INPUT34,INPUT35,INPUT36,INPUT37,INPUT38,INPUT39,INPUT40,INPUT41,INPUT42,INPUT43,INPUT44,INPUT45,INPUT46,INPUT47,INPUT48,INPUT49,INPUT50,INPUT51,INPUT52,INPUT53,INPUT54,INPUT55,INPUT56,INPUT57,INPUT58,INPUT59,INPUT60,INPUT61,INPUT62,INPUT63
-
+# number of 10gbe ports per f-engine
 ports_per_fengine = 2
+# how many bits per ADC sample
 sample_bits = 10
+# how many parallel ADC samples do we get per digitiser clock?
 adc_demux_factor = 8
+# The processed analogue bandwidth
 bandwidth = 856000000
-true_cf = 1284000000
+# the centre frequency on the sky
+true_cf = 428000000
+# Number of channels produced by the f-engine
 n_chans = 4096
+# Measured PBF group delay
+pfb_group_delay=16384
+# FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
 fft_shift = 511
+# The fixed-point format post FFT in the F engines
 quant_format = 8.7
+# Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 128
-10gbe_start_mac = 02:02:00:00:01:10
+# IP and port for Gbe cores
 10gbe_start_ip = 10.100.0.150
 10gbe_port = 7148
+# SPEAD flavour, string in the form XX,YY. Default: 64,48. See the SPEAD documentation for details.
 spead_flavour = 64,48
+# Equalisation settings - one per input - must have the same suffix as the source names above
 eq_poly_ant0_x = 200
 eq_poly_ant0_y = 200
 eq_poly_ant1_x = 200
@@ -155,39 +210,35 @@ eq_poly_ant30_x = 200
 eq_poly_ant30_y = 200
 eq_poly_ant31_x = 200
 eq_poly_ant31_y = 200
-min_load_time = 0.2
+# Delay settings
+min_load_time = 1
 network_latency_adjust = 0
-qdr_ct_error_threshold = 100
+# where should the f-data go?
 output_products = antenna-channelised-voltage
-output_destinations_base = 239.101.98.0:7148
+output_destinations_base = MULTICAST2:7148
 
 [xengine]
-hosts = skarab02043B-01,skarab02043C-01,skarab020430-01,skarab020604-01,skarab020514-01,skarab020518-01,skarab020520-01,skarab020521-01,skarab020522-01,skarab020523-01,skarab020524-01,skarab020525-01,skarab020526-01,skarab020527-01,skarab020528-01,skarab02051A-01,skarab02042D-01,skarab02042E-01,skarab02042F-01,skarab020424-01,skarab020425-01,skarab020427-01,skarab020429-01,skarab020431-01,skarab020432-01,skarab020433-01,skarab020434-01,skarab020435-01,skarab020436-01,skarab020437-01,skarab020503-01,skarab020504-01
-
-#bitstream = /srv/bofs/xeng/s_b32a4x32f_2018-03-28_0933.fpg
+#hosts = SKARAB32,SKARAB33,SKARAB34,SKARAB35,SKARAB36,SKARAB37,SKARAB38,SKARAB39,SKARAB40,SKARAB41,SKARAB42,SKARAB43,SKARAB44,SKARAB45,SKARAB46,SKARAB47,SKARAB48,SKARAB49,SKARAB50,SKARAB51,SKARAB52,SKARAB53,SKARAB54,SKARAB55,SKARAB56,SKARAB57,SKARAB58,SKARAB59,SKARAB60,SKARAB61,SKARAB62,SKARAB63
+hosts = skarab02043B-01,skarab02043C-01,skarab020430-01,skarab020604-01,skarab020514-01,skarab020518-01,skarab020520-01,skarab020521-01,skarab020522-01,skarab020523-01,skarab020524-01,skarab020525-01,skarab020526-01,skarab020527-01,skarab020528-01,skarab020928-01,skarab02042D-01,skarab02042E-01,skarab02042F-01,skarab020424-01,skarab020425-01,skarab020427-01,skarab020429-01,skarab020431-01,skarab020432-01,skarab020433-01,skarab020434-01,skarab020435-01,skarab020436-01,skarab020437-01,skarab020503-01,skarab020504-01
 bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/s_b32a4x32f.fpg
 
-
-x_fpga_clock = 230000000
+# x fpga clock speed
+x_fpga_clock = 240000000
+# Number of X engines per host
 x_per_fpga = 4
+# Number of spectra to integrate
 accumulation_len = 816
+# Number of accumulations performed in the X engine cores
 xeng_accumulation_len = 256
+# Number of bits the vacc uses to represent one number
 xeng_outbits = 32
-10gbe_start_mac = 02:02:00:00:02:10
-10gbe_start_ip = 10.101.0.110
+# IP and port for Gbe cores
+10gbe_start_ip = 10.100.0.110
 10gbe_port = 7148
+# data product names and destinations
 output_products = baseline-correlation-products
-output_destinations_base = 239.101.99.0:7148
+output_destinations_base = MULTICAST3:7148
+# Packet length of 10Gbe exchange data in 64 bit words.
 10gbe_pkt_len = 512
+# Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
-qdr_vacc_error_threshold = 100
-
-[dsimengine]
-sample_rate_hz = 1712000000
-bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
-host = roach02064F
-10gbe_start_mac = 02:02:00:00:50:01
-10gbe_start_ip = 10.101.0.40
-10gbe_port = 7148
-pol0_destination_start_ip = 239.101.0.0
-pol1_destination_start_ip = 239.101.0.2
