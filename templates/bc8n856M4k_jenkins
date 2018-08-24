@@ -1,0 +1,103 @@
+# NB: section names are case sensitive, but option names are NOT!
+[FxCorrelator]
+max_fd = 4096
+monitor_loop_time = 1
+log_file_dir = /var/log/corr
+katcp_port = 7147
+#the input sample rate in Hz:
+sample_rate_hz = 1714298408
+#The number of bits used in the SPEAD timestamps:
+timestamp_bits = 48
+# at what interval do we poll sensors?
+sensor_poll_time = 20
+# at what interval do we run the monitoring loop?
+monitor_loop_time = 20
+# how much time difference between the received f-engine times is allowed?
+time_jitter_allowed = 0.5
+# how close should the received f-engine times be to the actual time?
+time_offset_allowed = 5
+# how long should we wait to allow the switches to configure, default 10s
+switch_delay = 5
+# what is the TTL for SPEAD metadata packets?
+spead_metapacket_ttl = 4
+# what is the source to this instrument?
+source_products = baseband-voltage
+#How many dual-pol antennas are in this system:
+n_ants=4
+#default timeout when talking to boards; not yet used everywhere:
+default_timeout=5
+
+
+[fengine]
+hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
+
+# Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
+f_per_fpga = 2
+source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7 
+
+# number of input streams per f-engine
+n_input_streams_per_fengine = 2
+# how many bits per ADC sample
+sample_bits = 10
+# Number of channels produced by the f-engine
+n_chans = 4096
+# FFT shifting schedule in decimal. A binary '1' shifts, a zero does not.
+fft_shift = 8191
+#the measured offset in ADC samples of the peak of the PFB response.
+pfb_group_delay=16384
+# The fixed-point format post FFT in the F engines
+quant_format = 8.7
+# Default EQ gain to apply to all inputs.
+default_eq_poly = 100
+# How far in advance do we need to receive the delay updates in order to set them reliably?
+min_load_time = 0.5
+
+output_products = antenna-channelised-voltage
+output_destinations_base = 239.101.11.64:7148
+
+[beam0]
+output_products=tied-array-channelised-voltage.0x
+output_destinations_base = 239.101.13.64:7148
+stream_index = 0
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 1
+
+[beam1]
+output_products=tied-array-channelised-voltage.0y
+output_destinations_base = 239.101.14.64:7148
+stream_index = 1
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 1
+
+[xengine]
+
+hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
+bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/s_b4a4x256f.fpg
+
+# x fpga clock speed
+# Number of X engines per host
+x_per_fpga = 4
+# Number of spectra to integrate in VACC:
+accumulation_len = 408
+# accumulation_len = 4080
+# Number of accumulations performed in the X engine cores
+xeng_accumulation_len = 256 
+# Number of bits the vacc uses to represent one number
+xeng_outbits = 32
+# data product names and destinations
+output_products = baseline-correlation-products
+output_destinations_base = 239.101.12.64:7148
+# Gap, in cycles, enforced between output packets
+10gbe_pkt_gapsize = 262144
+
+[dsimengine]
+sample_rate_hz = 1714298408
+bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
+host = skarab020926-01
+10gbe_start_ip = 10.101.0.40
+10gbe_port = 7148
+pol0_destination_start_ip = 239.101.110.64
+pol1_destination_start_ip = 239.101.110.66
