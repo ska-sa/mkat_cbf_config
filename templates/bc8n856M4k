@@ -31,7 +31,7 @@ default_timeout=5
 [fengine]
 hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
 #bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
-bitstream = /srv/bofs/feng/s_c856m4k_2018-07-26_1701.fpg
+bitstream = /srv/bofs/feng/s_c856m4k_2018-09-19_1139.fpg
 
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
