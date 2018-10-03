@@ -31,16 +31,7 @@ default_timeout=130
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3,SKARAB4,SKARAB5,SKARAB6,SKARAB7,SKARAB8,SKARAB9,SKARAB10,SKARAB11,SKARAB12,SKARAB13,SKARAB14,SKARAB15,SKARAB16,SKARAB17,SKARAB18,SKARAB19,SKARAB20,SKARAB21,SKARAB22,SKARAB23,SKARAB24,SKARAB25,SKARAB26,SKARAB27,SKARAB28,SKARAB29,SKARAB30,SKARAB31,SKARAB32,SKARAB33,SKARAB34,SKARAB35,SKARAB36,SKARAB37,SKARAB38,SKARAB39,SKARAB40,SKARAB41,SKARAB42,SKARAB43,SKARAB44,SKARAB45,SKARAB46,SKARAB47,SKARAB48,SKARAB49,SKARAB50,SKARAB51,SKARAB52,SKARAB53,SKARAB54,SKARAB55,SKARAB56,SKARAB57,SKARAB58,SKARAB59,SKARAB60,SKARAB61,SKARAB62,SKARAB63
-#JM compile with old CT, incl larger snapshot on hmc cd to try'n trace sync issues:
-#bitstream = /srv/bofs/feng/s_c856m1k_2018-09-07_1022.fpg
-#AM compile with new CT and changed addressing:
-#bitstream = /srv/bofs/feng/s_c856m1k_2018-09-10_1657.fpg
-#AM compile with new CT and fixed rd addr calculations:
-#bitstream = /srv/bofs/feng/s_c856m1k_2018-09-11_1628.fpg
-#AM compile with new CT (still broken), but with JM CD fixes:
 bitstream = /srv/bofs/feng/s_c856m1k_2018-09-17_0929.fpg
-
-#bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m1k.fpg
 
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
@@ -62,14 +53,10 @@ default_eq_poly = 500
 # How far in advance do we need to receive the delay updates in order to set them reliably?
 min_load_time = 2
 output_products = antenna-channelised-voltage
-#output_destinations_base = MULTICAST0:7148
 output_destinations_base = 239.101.22.0:7148
 
 [beam0]
-# Wed Jul 18 14:14:17 SAST 2018 - change on request by ludwig - change back if needed ? 
-#output_products=tied-array-channelised-voltage:0x
 output_products=tied-array-channelised-voltage.0x
-#output_destinations_base = MULTICAST2:7148
 output_destinations_base = 239.101.23.0:7148
 stream_index = 0
 default_weight = 1.0
@@ -77,11 +64,8 @@ beng_outbits = 8
 quant_gain = 0.5
 
 [beam1]
-#output_products=tied-array-channelised-voltage:0y
 output_products=tied-array-channelised-voltage.0y
-#output_destinations_base = MULTICAST3:7148
 output_destinations_base = 239.101.24.0:7148
-
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
@@ -102,24 +86,16 @@ xeng_accumulation_len = 256
 xeng_outbits = 32
 # data product names and destinations
 output_products = baseline-correlation-products
-#output_destinations_base = MULTICAST1:7148
 output_destinations_base = 239.101.26.0:7148
 # Gap, in cycles, enforced between output packets
-#10gbe_pkt_gapsize = 262144
 10gbe_pkt_gapsize = 65536
 
 [dsimengine]
-#sample_rate_hz = 1714274000
 sample_rate_hz = 1714298408
-#bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
 bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
-#bitstream = /srv/bofs/deng/s_deng_rev1_13_wide_2018-05-21_1610.fpg
-#host = roach020A11
 host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
 pol0_destination_start_ip = 239.101.112.74
 pol1_destination_start_ip = 239.101.112.76
-#pol0_destination_start_ip = 10.99.37.5
-#pol1_destination_start_ip = 10.99.37.5
 
