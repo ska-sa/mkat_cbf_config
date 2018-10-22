@@ -88,8 +88,9 @@ xeng_outbits = 32
 output_products = baseline-correlation-products
 output_destinations_base = 239.101.26.0:7148
 # Gap, in cycles, enforced between output packets
-10gbe_pkt_gapsize = 65536
+#10gbe_pkt_gapsize = 65536
 #10gbe_pkt_gapsize = 1048575
+10gbe_pkt_gapsize = 524287
 
 [dsimengine]
 sample_rate_hz = 1714298408
