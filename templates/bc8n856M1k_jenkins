@@ -6,7 +6,7 @@ monitor_loop_time = 1
 log_file_dir = /var/log/corr/
 katcp_port = 7147
 #the input sample rate in Hz:
-sample_rate_hz = 1712000000
+sample_rate_hz = 1714298408
 #The number of bits used in the SPEAD timestamps:
 timestamp_bits = 48
 # at what interval do we poll sensors?
@@ -28,20 +28,9 @@ default_timeout=15
 
 
 [fengine]
-hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-#91% bin width:
-#bitstream = /srv/bofs/feng/s_c856m1k_91_2018-08-16_1622.fpg
-#100% bin width:
-#bitstream = /srv/bofs/feng/s_c856m1k16tap_2018-08-15_1405.fpg
-#AM debug compile with new CT:
-#bitstream = /srv/bofs/feng/s_c856m1k_2018-09-07_1618.fpg
-#JM compile with deeper snapshot for CD/resync debugging:
-#bitstream = /srv/bofs/feng/s_c856m1k_2018-09-12_0846.fpg
+hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
 #AM compile with new CT and revised CD read offset from JM.
-bitstream = /srv/bofs/feng/s_c856m1k_2018-09-17_0929.fpg
-
-#bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m1k.fpg
-
+bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
 
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
@@ -63,13 +52,15 @@ default_eq_poly = 500
 # How far in advance do we need to receive the delay updates in order to set them reliably?
 min_load_time = 2
 output_products = antenna-channelised-voltage
-output_destinations_base = MULTICAST0:7148
+output_destinations_base = 239.101.11.64:7148
+
 
 [beam0]
 # Wed Jul 18 14:14:17 SAST 2018 - change on request by ludwig - change back if needed ? 
 #output_products=tied-array-channelised-voltage:0x
 output_products=tied-array-channelised-voltage.0x
-output_destinations_base = MULTICAST2:7148
+output_destinations_base = 239.101.13.64:7148
+
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
@@ -78,15 +69,16 @@ quant_gain = 0.5
 [beam1]
 #output_products=tied-array-channelised-voltage:0y
 output_products=tied-array-channelised-voltage.0y
-output_destinations_base = MULTICAST3:7148
+output_destinations_base = 239.101.14.64:7148
+
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.5
 
 [xengine]
-hosts = SKARAB4,SKARAB5,SKARAB6,SKARAB7
-Bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
+hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
 
 # x fpga clock speed
 # Number of X engines per host
@@ -100,20 +92,17 @@ xeng_accumulation_len = 256
 xeng_outbits = 32
 # data product names and destinations
 output_products = baseline-correlation-products
-output_destinations_base = MULTICAST1:7148
+output_destinations_base = 239.101.12.64:7148
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
 
 [dsimengine]
-sample_rate_hz = 1712000000
-#bitstream = /srv/mkat_fpga/bitstreams/deng/r2_deng_tvg_rev1_13.fpg
+sample_rate_hz = 1714298408
 bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
-#bitstream = /srv/bofs/deng/s_deng_rev1_13_wide_2018-05-21_1610.fpg
-#host = roach020A11
-host = skarab020415-01
+host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
 pol0_destination_start_ip = 239.101.110.64
 pol1_destination_start_ip = 239.101.110.66
-#pol0_destination_start_ip = 10.99.37.5
-#pol1_destination_start_ip = 10.99.37.5
+
+
