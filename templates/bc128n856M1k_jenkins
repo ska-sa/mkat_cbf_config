@@ -98,6 +98,7 @@ bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
 host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.112.74
-pol1_destination_start_ip = 239.101.112.76
+pol0_destination_start_ip = 239.101.110.64
+pol1_destination_start_ip = 239.101.110.66
+
 
