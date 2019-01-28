@@ -26,11 +26,22 @@ n_ants = 4
 #default timeout when talking to boards; not yet used everywhere:
 default_timeout = 15
 
+[log-level]
+instrument = debug
+#feng = debug
+#xeng = debug
+#beng = info
+#delaytracking = error
+#xfpgas = error
+#ffpgas = error
+
 
 [fengine]
-hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
+#hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
+hosts = skarab020801-01,skarab020803-01,skarab020805-01,skarab020711-01
 #AM compile with new CT and revised CD read offset from JM.
-bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
+#bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
+bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
 #bitstream = /tmp/s_c856m1k_2018-10-26_0836.fpg
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
@@ -71,7 +82,8 @@ beng_outbits = 8
 quant_gain = 0.5
 
 [xengine]
-hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+#hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+hosts = skarab020807-01,skarab020808-01,skarab020809-01,skarab02080B-01
 bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
 #Bitstream = /tmp/s_b4a4x64f_2018-10-29_1552.fpg
 # Number of spectra to integrate in VACC:
@@ -94,6 +106,6 @@ bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
 host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.110.64
-pol1_destination_start_ip = 239.101.110.66
+pol0_destination_start_ip = 239.101.0.64
+pol1_destination_start_ip = 239.101.0.66
 
