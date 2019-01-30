@@ -28,9 +28,12 @@ default_timeout=15
 
 
 [fengine]
-hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
+# LEAF 16
+hosts = skarab02043B-01,skarab020804-01,skarab02080C-01,skarab02080E-01
+
 #AM compile with new CT and revised CD read offset from JM.
-bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
+#bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
+bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
 
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
@@ -77,7 +80,8 @@ beng_outbits = 8
 quant_gain = 0.5
 
 [xengine]
-hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+# LEAF 16
+hosts = skarab020810-01,skarab020811-01,skarab020812-01,skarab020813-01
 bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
 
 # x fpga clock speed
@@ -99,7 +103,8 @@ output_destinations_base = 239.101.12.64:7148
 [dsimengine]
 sample_rate_hz = 1714298408
 bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
-host = skarab020926-01
+# LEAF 16
+host = skarab020932-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
 pol0_destination_start_ip = 239.101.210.64

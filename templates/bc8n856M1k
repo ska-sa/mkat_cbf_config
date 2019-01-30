@@ -37,7 +37,7 @@ instrument = debug
 
 
 [fengine]
-#hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
+# LEAF 15
 hosts = skarab020801-01,skarab020803-01,skarab020805-01,skarab020711-01
 #AM compile with new CT and revised CD read offset from JM.
 #bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
@@ -63,11 +63,11 @@ default_eq_poly = 500
 # How far in advance do we need to receive the delay updates in order to set them reliably?
 min_load_time = 0.5
 output_products = antenna-channelised-voltage
-output_destinations_base = 239.101.11.64:7148
+output_destinations_base = 239.101.21.64:7148
 
 [beam0]
 output_products = tied-array-channelised-voltage.0x
-output_destinations_base = 239.101.13.64:7148
+output_destinations_base = 239.101.23.64:7148
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
@@ -75,14 +75,14 @@ quant_gain = 0.5
 
 [beam1]
 output_products = tied-array-channelised-voltage.0y
-output_destinations_base = 239.101.14.64:7148
+output_destinations_base = 239.101.24.64:7148
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.5
 
 [xengine]
-#hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
+# LEAF 15
 hosts = skarab020807-01,skarab020808-01,skarab020809-01,skarab02080B-01
 bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
 #Bitstream = /tmp/s_b4a4x64f_2018-10-29_1552.fpg
@@ -96,16 +96,17 @@ xeng_outbits = 32
 x_per_fpga = 4
 # data product names and destinations
 output_products = baseline-correlation-products
-output_destinations_base = 239.101.12.64:7148
+output_destinations_base = 239.101.22.64:7148
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
 
 [dsimengine]
 sample_rate_hz = 1714298408
 bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
+#LEAF 15
 host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.0.64
-pol1_destination_start_ip = 239.101.0.66
+pol0_destination_start_ip = 239.101.50.64
+pol1_destination_start_ip = 239.101.50.66
 
