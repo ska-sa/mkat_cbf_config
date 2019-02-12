@@ -41,7 +41,10 @@ instrument = debug
 hosts = skarab020801-01,skarab020803-01,skarab020805-01,skarab020711-01
 #AM compile with new CT and revised CD read offset from JM.
 #bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
-bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
+#bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
+
+# new bitstreams for testing JM 12/02/19
+bitstream =/srv/bofs/feng/s_c856m1k_2019-01-29_2203.fpg
 #bitstream = /tmp/s_c856m1k_2018-10-26_0836.fpg
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
@@ -85,6 +88,9 @@ quant_gain = 0.5
 # LEAF 15
 hosts = skarab020807-01,skarab020808-01,skarab020809-01,skarab02080B-01
 bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
+
+# new bitstreams for testing JM 12/02/19
+bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-12-20_1036.fpg
 #Bitstream = /tmp/s_b4a4x64f_2018-10-29_1552.fpg
 # Number of spectra to integrate in VACC:
 accumulation_len = 1632
