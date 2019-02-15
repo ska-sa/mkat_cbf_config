@@ -22,9 +22,10 @@ spead_metapacket_ttl = 4
 # what is the source to this instrument?
 source_products = baseband-voltage
 #How many dual-pol antennas are in this system:
-n_ants=4
+n_ants = 4
 #default timeout when talking to boards; not yet used everywhere:
-default_timeout=15
+default_timeout = 15
+
 
 
 [fengine]
@@ -33,8 +34,11 @@ hosts = skarab02043B-01,skarab020804-01,skarab02080C-01,skarab02080E-01
 
 #AM compile with new CT and revised CD read offset from JM.
 #bitstream = /srv/bofs/feng/s_c856m1k_2018-10-29_1805.fpg
-bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
+#bitstream = /srv/bofs/feng/s_c856m1k_2018-11-21_1733.fpg
 
+# new bitstreams for testing JM 12/02/19
+bitstream =/srv/bofs/feng/s_c856m1k_2019-01-29_2203.fpg
+#bitstream = /tmp/s_c856m1k_2018-10-26_0836.fpg
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
@@ -53,27 +57,22 @@ quant_format = 8.7
 # Default EQ gain to apply to all inputs.
 default_eq_poly = 500
 # How far in advance do we need to receive the delay updates in order to set them reliably?
-min_load_time = 2
+min_load_time = 0.5
 output_products = antenna-channelised-voltage
 output_destinations_base = 239.101.11.64:7148
 
 
 [beam0]
-# Wed Jul 18 14:14:17 SAST 2018 - change on request by ludwig - change back if needed ? 
-#output_products=tied-array-channelised-voltage:0x
-output_products=tied-array-channelised-voltage.0x
+output_products = tied-array-channelised-voltage.0x
 output_destinations_base = 239.101.13.64:7148
-
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.5
 
 [beam1]
-#output_products=tied-array-channelised-voltage:0y
-output_products=tied-array-channelised-voltage.0y
+output_products = tied-array-channelised-voltage.0y
 output_destinations_base = 239.101.14.64:7148
-
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
@@ -83,6 +82,10 @@ quant_gain = 0.5
 # LEAF 16
 hosts = skarab020810-01,skarab020811-01,skarab020812-01,skarab020813-01
 bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-07-09_1121.fpg
+
+# new bitstreams for testing JM 12/02/19
+bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-12-20_1036.fpg
+#Bitstream = /tmp/s_b4a4x64f_2018-10-29_1552.fpg
 
 # x fpga clock speed
 # Number of X engines per host

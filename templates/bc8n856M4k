@@ -27,13 +27,12 @@ n_ants=4
 #default timeout when talking to boards; not yet used everywhere:
 default_timeout=5
 
+[log-level]
+instrument = info
 
 [fengine]
-hosts = skarab020711-01,skarab020801-01,skarab020803-01,skarab020805-01
-#bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
-#bitstream = /srv/bofs/feng/s_c856m4k_2018-09-19_1139.fpg
-#bitstream = /srv/bofs/feng/s_c856m4k_2018-09-14_1152.fpg
-bitstream = /srv/bofs/feng/s_c856m4k_2018-10-23_0738.fpg
+hosts = skarab020801-01,skarab020803-01,skarab020805-01,skarab020711-01
+bitstream = /srv/bofs/feng/s_c856m4k_2019-01-14_1126.fpg
 # Number of f-engines per host - the PFB does two-pols, so only one, but it is two f-engines/pols
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7 
@@ -56,11 +55,11 @@ default_eq_poly = 100
 min_load_time = 0.5
 
 output_products = antenna-channelised-voltage
-output_destinations_base = 239.101.11.64:7148
+output_destinations_base = 239.101.21.64:7148
 
 [beam0]
 output_products=tied-array-channelised-voltage.0x
-output_destinations_base = 239.101.13.64:7148
+output_destinations_base = 239.101.23.64:7148
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
@@ -68,18 +67,15 @@ quant_gain = 1
 
 [beam1]
 output_products=tied-array-channelised-voltage.0y
-output_destinations_base = 239.101.14.64:7148
+output_destinations_base = 239.101.24.64:7148
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 1
 
 [xengine]
-hosts = skarab02060D-01,skarab020701-01,skarab020709-01,skarab020710-01
-
-#bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/s_b4a4x256f.fpg
-#bitstream = /srv/bofs/xeng/s_b4a4x256f_2018-08-01_1141.fpg
-bitstream = /srv/bofs/xeng/s_b4a4x256f_2018-08-21_0950.fpg
+hosts = skarab020807-01,skarab020808-01,skarab020809-01,skarab02080B-01
+bitstream = /srv/bofs/xeng/s_b4a4x256f_2018-12-19_1931.fpg
 # x fpga clock speed
 # Number of X engines per host
 x_per_fpga = 4
@@ -92,7 +88,7 @@ xeng_accumulation_len = 256
 xeng_outbits = 32
 # data product names and destinations
 output_products = baseline-correlation-products
-output_destinations_base = 239.101.12.64:7148
+output_destinations_base = 239.101.22.64:7148
 # Gap, in cycles, enforced between output packets
 10gbe_pkt_gapsize = 262144
 
@@ -102,10 +98,5 @@ bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
 host = skarab020926-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
-pol0_destination_start_ip = 239.101.110.64
-pol1_destination_start_ip = 239.101.110.66
-
-
-
-
-
+pol0_destination_start_ip = 239.101.50.64
+pol1_destination_start_ip = 239.101.50.66

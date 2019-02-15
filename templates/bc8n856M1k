@@ -27,14 +27,7 @@ n_ants = 4
 default_timeout = 15
 
 [log-level]
-instrument = debug
-#feng = debug
-#xeng = debug
-#beng = info
-#delaytracking = error
-#xfpgas = error
-#ffpgas = error
-
+instrument = info
 
 [fengine]
 # LEAF 15

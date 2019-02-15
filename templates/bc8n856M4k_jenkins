@@ -28,7 +28,7 @@ n_ants=4
 default_timeout=5
 
 [log-level]
-instrument = debug
+instrument = info
 
 [fengine]
 hosts = skarab020801-01,skarab020803-01,skarab020805-01,skarab020711-01
@@ -75,8 +75,6 @@ quant_gain = 1
 
 [xengine]
 hosts = skarab020807-01,skarab020808-01,skarab020809-01,skarab02080B-01
-
-#bitstream = /srv/mkat_fpga/bitstreams/xeng_wide/s_b4a4x256f.fpg
 bitstream = /srv/bofs/xeng/s_b4a4x256f_2018-12-19_1931.fpg
 
 # x fpga clock speed
@@ -98,7 +96,7 @@ output_destinations_base = 239.101.22.64:7148
 [dsimengine]
 sample_rate_hz = 1714298408
 bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
-host = skarab020926-01
+host = skarab020932-01
 10gbe_start_ip = 10.101.0.40
 10gbe_port = 7148
 pol0_destination_start_ip = 239.101.50.64
