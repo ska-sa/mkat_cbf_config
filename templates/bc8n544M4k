@@ -19,7 +19,7 @@ default_timeout = 15
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
 #bitstream = /srv/mkat_fpga/bitstreams/feng_wide/r2_c856m4k.fpg
-bitstream = /srv/bofs/feng/s_c856m4k_2019-02-12_1206.fpg
+bitstream = /srv/bofs/feng/s_c856m4k_2019-02-20_1320.fpg
 f_per_fpga = 2
 source_names = ant0x,ant0y,ant1x,ant1y,ant2x,ant2y,ant3x,ant3y
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
@@ -29,7 +29,7 @@ n_chans = 4096
 fft_shift = 3050
 quant_format = 8.7
 pfb_group_delay = -16384
-default_eq_poly = 100
+default_eq_poly = 1600
 min_load_time = 2
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
@@ -40,7 +40,7 @@ hosts = SKARAB4,SKARAB5,SKARAB6,SKARAB7
 #Fixed timestamp off-by-one out VACC:
 bitstream = /srv/bofs/xeng/s_b4a4x256f_2018-12-19_1931.fpg
 x_per_fpga = 4
-accumulation_len = 408
+accumulation_len = 1038
 xeng_accumulation_len = 256
 xeng_outbits = 32
 output_products = baseline-correlation-products

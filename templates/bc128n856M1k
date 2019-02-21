@@ -36,7 +36,7 @@ hosts = SKARAB64,SKARAB65,SKARAB66,SKARAB67,SKARAB68,SKARAB69,SKARAB70,SKARAB71,
 # 1 packet (2KiB) per heap. Working:
 #bitstream = /srv/bofs/xeng/s_b64a4x4f_2019-01-10_1358.fpg
 # JM compile with uB v3.11:
-bitstream = /srv/bofs/xeng/s_b64a4x1kf_2019-02-09_0149.fpg
+bitstream = /srv/bofs/xeng/s_b64a4x1kf_2019-02-16_0506.fpg
 x_per_fpga = 4
 accumulation_len = 1632
 xeng_accumulation_len = 256 

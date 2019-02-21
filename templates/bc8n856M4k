@@ -17,7 +17,7 @@ default_timeout=15
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-bitstream = /srv/bofs/feng/s_c856m4k_2019-02-12_1206.fpg
+bitstream = /srv/bofs/feng/s_c856m4k_2019-02-20_1320.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
 n_input_streams_per_fengine = 2
