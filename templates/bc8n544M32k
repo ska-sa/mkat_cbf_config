@@ -9,7 +9,7 @@ arp_wait_time = 20
 sensor_poll_time = 10
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
-switch_delay = 5
+switch_delay = 45
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants = 4
@@ -18,7 +18,7 @@ default_timeout = 15
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-bitstream = /srv/bofs/feng/s_c856m32k_2019-02-14_2116.fpg
+bitstream = /srv/bofs/feng/s_c856m32k_2019-03-07_14_25.fpg
 f_per_fpga = 2
 source_names = ant0x,ant0y,ant1x,ant1y,ant2x,ant2y,ant3x,ant3y
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
@@ -27,7 +27,7 @@ sample_bits = 10
 n_chans = 4096
 fft_shift = 3050
 quant_format = 8.7
-pfb_group_delay = -16384
+pfb_group_delay = -65536
 default_eq_poly = 100
 min_load_time = 2
 output_products = antenna-channelised-voltage

@@ -8,7 +8,7 @@ timestamp_bits = 48
 sensor_poll_time = 5
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
-switch_delay = 25
+switch_delay = 45
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=4
@@ -17,13 +17,13 @@ default_timeout=15
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-bitstream = /srv/bofs/feng/s_c856m4k_2019-02-20_1320.fpg
+bitstream = /srv/bofs/feng/s_c856m4k_2019-03-05_2059.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
 n_input_streams_per_fengine = 2
 sample_bits = 10
 n_chans = 4096
-fft_shift = 3050
+fft_shift = 3822
 pfb_group_delay=-16384
 quant_format = 8.7
 default_eq_poly = 1600

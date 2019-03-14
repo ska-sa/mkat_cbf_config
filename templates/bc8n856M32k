@@ -9,7 +9,7 @@ igmp_version = 2
 sensor_poll_time = 10
 time_jitter_allowed_ms = 0.5
 time_offset_allowed_s = 5
-switch_delay = 5
+switch_delay = 45
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=4
@@ -17,10 +17,11 @@ default_timeout=10
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-bitstream = /srv/bofs/feng/s_c856m32k_2019-02-14_2116.fpg
+bitstream = /srv/bofs/feng/s_c856m32k_2019-03-07_14_25.fpg
 f_per_fpga = 2
 source_names = ant0x,ant0y,ant1x,ant1y,ant2x,ant2y,ant3x,ant3y
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
+n_input_streams_per_fengine = 2
 sample_bits = 10
 n_chans = 32768
 fft_shift = 63454
@@ -34,7 +35,7 @@ output_destinations_base = MULTICAST0:7148
 
 [xengine]
 hosts = SKARAB4,SKARAB5,SKARAB6,SKARAB7
-bitstream = /srv/bofs/xeng/s_b4a4x32kf_2019-02-12_1838.fpg
+bitstream = /srv/bofs/xeng/s_b4a4x32kf_2019-02-16_1807.fpg
 x_per_fpga = 4
 accumulation_len = 408
 xeng_accumulation_len = 256

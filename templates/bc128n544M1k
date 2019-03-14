@@ -8,7 +8,7 @@ timestamp_bits = 48
 sensor_poll_time = 20
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
-switch_delay = 25
+switch_delay = 45
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=64
@@ -24,7 +24,7 @@ n_input_streams_per_fengine = 2
 sample_bits = 10
 n_chans = 1024
 fft_shift = 2047
-pfb_group_delay=-8192
+pfb_group_delay=-16384
 quant_format = 8.7
 default_eq_poly = 800
 min_load_time = 2
@@ -36,7 +36,7 @@ hosts = SKARAB64,SKARAB65,SKARAB66,SKARAB67,SKARAB68,SKARAB69,SKARAB70,SKARAB71,
 # 1 packet (2KiB) per heap. Working:
 #bitstream = /srv/bofs/xeng/s_b64a4x4f_2019-01-10_1358.fpg
 # JM compile with uB v3.11:
-bitstream = /srv/bofs/xeng/s_b64a4x1kf_2019-02-16_0506.fpg
+bitstream = /srv/bofs/xeng/s_b64a4x1kf.fpg
 x_per_fpga = 4
 accumulation_len = 1632
 xeng_accumulation_len = 256 

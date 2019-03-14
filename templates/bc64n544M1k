@@ -8,7 +8,7 @@ timestamp_bits = 48
 sensor_poll_time = 20
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
-switch_delay = 25
+switch_delay = 45
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=32
@@ -24,7 +24,7 @@ n_input_streams_per_fengine = 2
 sample_bits = 10
 n_chans = 1024
 fft_shift = 2047
-pfb_group_delay=-8192
+pfb_group_delay=-16384
 quant_format = 8.7
 default_eq_poly = 800
 min_load_time = 2
@@ -35,7 +35,7 @@ output_destinations_base = MULTICAST0:7148
 [xengine]
 hosts = SKARAB32,SKARAB33,SKARAB34,SKARAB35,SKARAB36,SKARAB37,SKARAB38,SKARAB39,SKARAB40,SKARAB41,SKARAB42,SKARAB43,SKARAB44,SKARAB45,SKARAB46,SKARAB47,SKARAB48,SKARAB49,SKARAB50,SKARAB51,SKARAB52,SKARAB53,SKARAB54,SKARAB55,SKARAB56,SKARAB57,SKARAB58,SKARAB59,SKARAB60,SKARAB61,SKARAB62,SKARAB63
 #JM compile, uB v3.11:
-bitstream = /srv/bofs/xeng/s_b32a4x1kf_2019-02-08_2247.fpg
+bitstream = /srv/bofs/xeng/s_b32a4x1kf_2019-02-23_0218.fpg
 x_per_fpga = 4
 accumulation_len = 1632
 xeng_accumulation_len = 256 
