@@ -1,0 +1,1 @@
+S-band runs at 875MHz BW. Otherwise the same as L-band.

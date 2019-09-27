@@ -5,7 +5,6 @@ log_file_dir = /var/log/corr/
 katcp_port = 7147
 sample_rate_hz = 1712000000
 timestamp_bits = 48
-sensor_poll_time = 20
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
 switch_delay = 30
@@ -13,27 +12,30 @@ spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=4
 default_timeout=15
-
+sensor_poll_interval = 0.05
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3
-bitstream = /srv/bofs/feng/s_c856m1k_2019-02-12_1123.fpg
+bitstream = /srv/bofs/feng/s_c856m1k_v0_2019-07-23_1023.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7
-n_input_streams_per_fengine = 2
+n_input_streams_per_fengine = 8
+decimation_factor=1
 sample_bits = 10
 n_chans = 1024
 fft_shift = 2047
 pfb_group_delay=-16384
-quant_format = 8.7
-default_eq_poly = 10000
+quant_bits = 8
+pfb_bits = 20
+default_eq_poly = 6024
 min_load_time = 2
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
+source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7
 
 [xengine]
 hosts = SKARAB4,SKARAB5,SKARAB6,SKARAB7
-bitstream = /srv/bofs/xeng/s_b4a4x64f_2018-12-20_1036.fpg
+bitstream = /srv/bofs/xeng/s_b4a4x1kf_2019-05-03_1744.fpg
 x_per_fpga = 4
 accumulation_len = 1632
 xeng_accumulation_len = 256 
