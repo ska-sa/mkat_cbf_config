@@ -12,7 +12,7 @@ spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants=4
 default_timeout=15
-sensor_poll_interval = 0.05
+sensor_poll_interval = 0.005
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3

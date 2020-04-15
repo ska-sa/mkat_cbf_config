@@ -7,11 +7,11 @@ sample_rate_hz = 1712000000
 timestamp_bits = 48
 time_jitter_allowed = 0.5
 time_offset_allowed = 5
-switch_delay = 45
+switch_delay = 10
 spead_metapacket_ttl = 4
 source_products = baseband-voltage
 n_ants = 32
-default_timeout = 130
+default_timeout = 15
 sensor_poll_interval = 0.005
 
 [fengine]
@@ -24,11 +24,11 @@ decimation_factor=1
 sample_bits = 10
 n_chans = 4096
 fft_shift = 8126
-pfb_group_delay = -32768
 quant_bits = 8
 pfb_bits = 20
+pfb_group_delay = -65536
 default_eq_poly = 1617
-min_load_time = 2
+min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
 source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7,LABEL8,LABEL9,LABEL10,LABEL11,LABEL12,LABEL13,LABEL14,LABEL15,LABEL16,LABEL17,LABEL18,LABEL19,LABEL20,LABEL21,LABEL22,LABEL23,LABEL24,LABEL25,LABEL26,LABEL27,LABEL28,LABEL29,LABEL30,LABEL31,LABEL32,LABEL33,LABEL34,LABEL35,LABEL36,LABEL37,LABEL38,LABEL39,LABEL40,LABEL41,LABEL42,LABEL43,LABEL44,LABEL45,LABEL46,LABEL47,LABEL48,LABEL49,LABEL50,LABEL51,LABEL52,LABEL53,LABEL54,LABEL55,LABEL56,LABEL57,LABEL58,LABEL59,LABEL60,LABEL61,LABEL62,LABEL63
@@ -54,18 +54,9 @@ beng_outbits = 8
 quant_gain = 0.177
 
 [beam1]
-output_products=tied-array-channelised-voltage.0y
+output_products = tied-array-channelised-voltage.0y
 output_destinations_base = MULTICAST3:7148
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.177
-
-[dsimengine]
-sample_rate_hz = 1712000000
-bitstream = /srv/mkat_fpga/bitstreams/deng/s_deng_rev1_13_wide.fpg
-host = skarab020926-01
-10gbe_start_ip = 10.101.0.40
-10gbe_port = 7148
-pol0_destination_start_ip = 239.101.110.64
-pol1_destination_start_ip = 239.101.110.66
