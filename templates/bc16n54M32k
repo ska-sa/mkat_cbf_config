@@ -16,7 +16,7 @@ sensor_poll_interval = 0.005
 
 [fengine]
 hosts = SKARAB0,SKARAB1,SKARAB2,SKARAB3,SKARAB4,SKARAB5,SKARAB6,SKARAB7
-bitstream = /srv/mkat_fpga/bitstreams/feng_nb/s_c54m32k.fpg
+bitstream = /srv/mkat_fpga/bitstreams/feng_nb/s_c53m32k.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7,INPUT8,INPUT9,INPUT10,INPUT11,INPUT12,INPUT13,INPUT14,INPUT15
 n_input_streams_per_fengine = 8
