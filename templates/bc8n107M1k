@@ -27,7 +27,7 @@ fft_shift = 2047
 #TODO! Fix this for NB:
 pfb_group_delay=0
 quant_bits = 8
-pfb_bits = 18
+pfb_bits = 22
 default_eq_poly = 250
 min_load_time = 2
 output_products = antenna-channelised-voltage
