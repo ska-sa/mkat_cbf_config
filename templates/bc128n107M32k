@@ -23,12 +23,12 @@ n_input_streams_per_fengine = 8
 decimation_factor = 8
 sample_bits = 10
 n_chans = 32768
-fft_shift = 56026
+fft_shift = 26006
 #TODO! Fix this for NB:
 pfb_group_delay = 0
 quant_bits = 8
 pfb_bits = 22
-default_eq_poly = 6000
+default_eq_poly = 5250
 min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
