@@ -38,7 +38,10 @@ source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7,LABEL8,LA
 hosts = SKARAB64,SKARAB65,SKARAB66,SKARAB67,SKARAB68,SKARAB69,SKARAB70,SKARAB71
 bitstream = /srv/mkat_fpga/bitstreams/xeng_nb/s_b64a4x32kf_54.fpg
 x_per_fpga = 4
-accumulation_len = 6
+#1s:
+#accumulation_len = 6
+#8s (SDP Bug, revert to 1s when fixed):
+accumulation_len = 51
 xeng_accumulation_len = 256 
 xeng_outbits = 32
 output_products = baseline-correlation-products
