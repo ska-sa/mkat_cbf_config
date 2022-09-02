@@ -20,7 +20,7 @@ bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m32k.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7,INPUT8,INPUT9,INPUT10,INPUT11,INPUT12,INPUT13,INPUT14,INPUT15
 n_input_streams_per_fengine = 8
-decimation_factor=1
+decimation_factor = 1
 sample_bits = 10
 n_chans = 32768
 fft_shift = 63454
@@ -31,6 +31,7 @@ default_eq_poly = 770
 min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
+send_descriptors = false
 source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7,LABEL8,LABEL9,LABEL10,LABEL11,LABEL12,LABEL13,LABEL14,LABEL15
 
 [xengine]
@@ -42,12 +43,14 @@ xeng_accumulation_len = 256
 xeng_outbits = 32
 output_products = baseline-correlation-products
 output_destinations_base = MULTICAST1:7148
+send_descriptors = true
 10gbe_pkt_gapsize = 65536
 
 [bengine]
 [beam0]
 output_products = tied-array-channelised-voltage.0x
 output_destinations_base = MULTICAST2:7148
+send_descriptors = false
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
@@ -56,6 +59,7 @@ quant_gain = 0.354
 [beam1]
 output_products = tied-array-channelised-voltage.0y
 output_destinations_base = MULTICAST3:7148
+send_descriptors = false
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8

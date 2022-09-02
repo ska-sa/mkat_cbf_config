@@ -24,7 +24,7 @@ decimation_factor = 16
 sample_bits = 10
 n_chans = 32768
 fft_shift = 26006
-#TODO! Fix this for NB:
+#TODO!FixthisforNB:
 pfb_group_delay = 0
 quant_bits = 8
 pfb_bits = 22
@@ -32,6 +32,7 @@ default_eq_poly = 4830
 min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
+send_descriptors = false
 source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7,LABEL8,LABEL9,LABEL10,LABEL11,LABEL12,LABEL13,LABEL14,LABEL15,LABEL16,LABEL17,LABEL18,LABEL19,LABEL20,LABEL21,LABEL22,LABEL23,LABEL24,LABEL25,LABEL26,LABEL27,LABEL28,LABEL29,LABEL30,LABEL31,LABEL32,LABEL33,LABEL34,LABEL35,LABEL36,LABEL37,LABEL38,LABEL39,LABEL40,LABEL41,LABEL42,LABEL43,LABEL44,LABEL45,LABEL46,LABEL47,LABEL48,LABEL49,LABEL50,LABEL51,LABEL52,LABEL53,LABEL54,LABEL55,LABEL56,LABEL57,LABEL58,LABEL59,LABEL60,LABEL61,LABEL62,LABEL63
 
 [xengine]
@@ -39,23 +40,26 @@ hosts = SKARAB32,SKARAB33,SKARAB34,SKARAB35
 bitstream = /srv/mkat_fpga/bitstreams/xeng_nb/s_b32a4x32kf_54.fpg
 x_per_fpga = 4
 accumulation_len = 4
-xeng_accumulation_len = 256 
+xeng_accumulation_len = 256
 xeng_outbits = 32
 output_products = baseline-correlation-products
 output_destinations_base = MULTICAST1:7148
+send_descriptors = true
 10gbe_pkt_gapsize = 65535
 
 [beam0]
-output_products=tied-array-channelised-voltage.0x
+output_products = tied-array-channelised-voltage.0x
 output_destinations_base = MULTICAST2:7148
+send_descriptors = false
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.177
 
 [beam1]
-output_products=tied-array-channelised-voltage.0y
+output_products = tied-array-channelised-voltage.0y
 output_destinations_base = MULTICAST3:7148
+send_descriptors = false
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8

@@ -24,7 +24,7 @@ decimation_factor = 16
 sample_bits = 10
 n_chans = 32768
 fft_shift = 26006
-#TODO! Fix this for NB:
+#TODO!FixthisforNB:
 pfb_group_delay = 0
 quant_bits = 8
 pfb_bits = 22
@@ -32,6 +32,7 @@ default_eq_poly = 7250
 min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
+send_descriptors = false
 source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7
 
 [xengine]
@@ -39,26 +40,27 @@ hosts = SKARAB4
 bitstream = /srv/mkat_fpga/bitstreams/xeng_nb/s_b4a4x32kf_54.fpg
 x_per_fpga = 4
 #1s:
-#accumulation_len = 6
-#8s (SDP Bug, revert to 1s when fixed):
-accumulation_len = 51
-xeng_accumulation_len = 256 
+accumulation_len = 6
+xeng_accumulation_len = 256
 xeng_outbits = 32
 output_products = baseline-correlation-products
 output_destinations_base = MULTICAST1:7148
+send_descriptors = true
 10gbe_pkt_gapsize = 65535
 
 [beam0]
-output_products=tied-array-channelised-voltage.0x
+output_products = tied-array-channelised-voltage.0x
 output_destinations_base = MULTICAST2:7148
+send_descriptors = false
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.5
 
 [beam1]
-output_products=tied-array-channelised-voltage.0y
+output_products = tied-array-channelised-voltage.0y
 output_destinations_base = MULTICAST3:7148
+send_descriptors = false
 stream_index = 1
 default_weight = 1.0
 beng_outbits = 8

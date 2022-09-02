@@ -20,17 +20,19 @@ bitstream = /srv/mkat_fpga/bitstreams/feng_wide/s_c856m4k.fpg
 f_per_fpga = 2
 source_mcast_ips = INPUT0,INPUT1,INPUT2,INPUT3,INPUT4,INPUT5,INPUT6,INPUT7,INPUT8,INPUT9,INPUT10,INPUT11,INPUT12,INPUT13,INPUT14,INPUT15,INPUT16,INPUT17,INPUT18,INPUT19,INPUT20,INPUT21,INPUT22,INPUT23,INPUT24,INPUT25,INPUT26,INPUT27,INPUT28,INPUT29,INPUT30,INPUT31,INPUT32,INPUT33,INPUT34,INPUT35,INPUT36,INPUT37,INPUT38,INPUT39,INPUT40,INPUT41,INPUT42,INPUT43,INPUT44,INPUT45,INPUT46,INPUT47,INPUT48,INPUT49,INPUT50,INPUT51,INPUT52,INPUT53,INPUT54,INPUT55,INPUT56,INPUT57,INPUT58,INPUT59,INPUT60,INPUT61,INPUT62,INPUT63
 n_input_streams_per_fengine = 8
-decimation_factor=1
+decimation_factor = 1
 sample_bits = 10
 n_chans = 4096
 fft_shift = 8126
 quant_bits = 8
 pfb_bits = 20
 pfb_group_delay = -65536
-default_eq_poly = 3234
+#default_eq_poly = 3234
+default_eq_poly = 1821
 min_load_time = 0.15
 output_products = antenna-channelised-voltage
 output_destinations_base = MULTICAST0:7148
+send_descriptors = false
 source_names = LABEL0,LABEL1,LABEL2,LABEL3,LABEL4,LABEL5,LABEL6,LABEL7,LABEL8,LABEL9,LABEL10,LABEL11,LABEL12,LABEL13,LABEL14,LABEL15,LABEL16,LABEL17,LABEL18,LABEL19,LABEL20,LABEL21,LABEL22,LABEL23,LABEL24,LABEL25,LABEL26,LABEL27,LABEL28,LABEL29,LABEL30,LABEL31,LABEL32,LABEL33,LABEL34,LABEL35,LABEL36,LABEL37,LABEL38,LABEL39,LABEL40,LABEL41,LABEL42,LABEL43,LABEL44,LABEL45,LABEL46,LABEL47,LABEL48,LABEL49,LABEL50,LABEL51,LABEL52,LABEL53,LABEL54,LABEL55,LABEL56,LABEL57,LABEL58,LABEL59,LABEL60,LABEL61,LABEL62,LABEL63
 
 [xengine]
@@ -42,12 +44,14 @@ xeng_accumulation_len = 256
 xeng_outbits = 32
 output_products = baseline-correlation-products
 output_destinations_base = MULTICAST1:7148
+send_descriptors = true
 10gbe_pkt_gapsize = 65536
 
 [bengine]
 [beam0]
 output_products = tied-array-channelised-voltage.0x
 output_destinations_base = MULTICAST2:7148
+send_descriptors = false
 stream_index = 0
 default_weight = 1.0
 beng_outbits = 8
@@ -56,7 +60,62 @@ quant_gain = 0.177
 [beam1]
 output_products = tied-array-channelised-voltage.0y
 output_destinations_base = MULTICAST3:7148
+send_descriptors = false
 stream_index = 1
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam2]
+output_products = tied-array-channelised-voltage.1x
+output_destinations_base = MULTICAST4:7148
+send_descriptors = false
+stream_index = 2
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam3]
+output_products = tied-array-channelised-voltage.1y
+output_destinations_base = MULTICAST5:7148
+send_descriptors = false
+stream_index = 3
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam4]
+output_products = tied-array-channelised-voltage.2x
+output_destinations_base = MULTICAST6:7148
+send_descriptors = false
+stream_index = 4
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam5]
+output_products = tied-array-channelised-voltage.2y
+output_destinations_base = MULTICAST7:7148
+send_descriptors = false
+stream_index = 5
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam6]
+output_products = tied-array-channelised-voltage.3x
+output_destinations_base = MULTICAST8:7148
+send_descriptors = false
+stream_index = 6
+default_weight = 1.0
+beng_outbits = 8
+quant_gain = 0.177
+
+[beam7]
+output_products = tied-array-channelised-voltage.3y
+output_destinations_base = MULTICAST9:7148
+send_descriptors = false
+stream_index = 7
 default_weight = 1.0
 beng_outbits = 8
 quant_gain = 0.177
